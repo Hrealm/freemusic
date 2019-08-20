@@ -3,9 +3,7 @@
 		<header>
 			<div class="hd">
 				<h1 class="logo">
-					<a href>
-						<!-- <img src="./assets/logo.png" alt/> -->
-					</a>
+					<a href><!-- <img src="./assets/logo.png" alt/> --></a>
 				</h1>
 				<div class="nav">
 					<ul class="clearFix">
@@ -61,7 +59,7 @@ header {
 	height: 90px;
 	.hd {
 		position: relative;
-		width: 1000px;
+		width: 1200px;
 		height: 100%;
 		margin: 0 auto;
 		line-height: 90px;

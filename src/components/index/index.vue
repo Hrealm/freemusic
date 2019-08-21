@@ -2,8 +2,8 @@
 	<div class="wrap">
 		<div class="banner">
 			<el-carousel :interval="4000" type="card" height="305px">
-				<el-carousel-item v-for="item in 6" :key="item">
-					<h3 class="medium">{{ item }}</h3>
+				<el-carousel-item v-for="(item,index) in banner" :key="index">
+                    <img :src="item.picUrl" alt="" width="100%" height="100%">
 				</el-carousel-item>
 			</el-carousel>
 		</div>
@@ -21,7 +21,7 @@ export default {
     created(){
         this.axios.get('banner')
             .then((res)=>{
-                console.log(res.data);
+                this.banner = res.data
             })
     }
 }
@@ -36,18 +36,10 @@ export default {
         .el-carousel{
             width: 100%;
         }
-        .el-carousel__item h3 {
-            color: #475669;
-            font-size: 14px;
-            opacity: 0.75;
-            line-height: 200px;
-            margin: 0;
-        }
-        .el-carousel__item:nth-child(2n) {
-            background-color: #99a9bf;
-        }
-        .el-carousel__item:nth-child(2n + 1) {
-            background-color: #d3dce6;
+        div.is-active{
+            width: 751px;
+            height: 300px;
+            margin-left: -75.5px;
         }
     }
 }

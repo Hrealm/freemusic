@@ -3,7 +3,8 @@
 		<header>
 			<div class="hd">
 				<h1 class="logo">
-					<a href><!-- <img src="./assets/logo.png" alt/> --></a>
+                    <router-link :to="{name:'index'}"></router-link>
+					<!-- <a href><img src="./assets/logo.png" alt/></a> -->
 				</h1>
 				<div class="nav">
 					<ul class="clearFix">
@@ -63,7 +64,7 @@ header {
 		height: 100%;
 		margin: 0 auto;
 		line-height: 90px;
-		border-bottom: 1px solid #ddd;
+		// border-bottom: 1px solid #ddd;
 		.logo {
 			position: absolute;
 			left: 0;

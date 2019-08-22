@@ -102,6 +102,218 @@ server.on('request',(req,res)=>{
                 ],
                 picUrl: '../static/img/hotList/3.jpg'
             }
+        ],
+        tabMenu: [
+            {
+                id: 1,
+                title: '华语',
+                tip: 'Chinese'
+            },
+            {
+                id: 2,
+                title: '欧美',
+                tip: 'USEuro'
+            },
+            {
+                id: 3,
+                title: '韩国',
+                tip: 'Korea'
+            },
+            {
+                id: 4,
+                title: '日本',
+                tip: 'Japan'
+            }
+        ],
+        SongtabContent: {
+            Chinese: [
+                {
+                    id: 1,
+                    name: '陈雪凝 - 十八',
+                    time: '04:31'
+                },
+                {
+                    id: 2,
+                    name: '摩登兄弟 - 人造卫星情人',
+                    time: '05:15'
+                },
+                {
+                    id: 3,
+                    name: '麦小兜 - 假如我很快乐',
+                    time: '04:22'
+                },
+                {
+                    id: 4,
+                    name: '王蓉 - 数羊',
+                    time: '03:27'
+                },
+                {
+                    id: 5,
+                    name: '郑秀文 - 好好说【花椒之味电影主题曲】',
+                    time: '04:51'
+                },
+                {
+                    id: 6,
+                    name: '蒋雪儿 - 莫问归期',
+                    time: '03:39'
+                },
+                {
+                    id: 7,
+                    name: '小倩 - 言不由衷',
+                    time: '04:06'
+                },
+                {
+                    id: 8,
+                    name: '熊梓淇、赖雨濛 - 只想跟你在一起【国民老公2》影视剧片尾曲】',
+                    time: '03:21'
+                }
+            ],
+            USEuro: [
+                {
+                    id: 1,
+                    name: 'Taylor Swift - Lover',
+                    time: '03:41'
+                },
+                {
+                    id: 2,
+                    name: 'Martin Garrix、Bonn - Home',
+                    time: '03:59'
+                },
+                {
+                    id: 3,
+                    name: 'Swae Lee、Drake - Won t Be Late',
+                    time: '03:38'
+                },
+                {
+                    id: 4,
+                    name: '王蓉 - 数羊',
+                    time: '03:27'
+                },
+                {
+                    id: 5,
+                    name: '郑秀文 - 好好说【花椒之味电影主题曲】',
+                    time: '04:51'
+                },
+                {
+                    id: 6,
+                    name: '蒋雪儿 - 莫问归期',
+                    time: '03:39'
+                },
+                {
+                    id: 7,
+                    name: '小倩 - 言不由衷',
+                    time: '04:06'
+                },
+                {
+                    id: 8,
+                    name: '熊梓淇、赖雨濛 - 只想跟你在一起【国民老公2》影视剧片尾曲】',
+                    time: '03:21'
+                }
+            ],
+            Korea: [
+                {
+                    id: 1,
+                    name: 'Red Velvet - 음파음파 (Umpah Umpah)',
+                    time: '03:40'
+                },
+                {
+                    id: 2,
+                    name: 'Simon Dominic、Loopy、Crush - make her dance',
+                    time: '02:50'
+                },
+                {
+                    id: 3,
+                    name: '麦小兜 - 假如我很快乐',
+                    time: '04:22'
+                },
+                {
+                    id: 4,
+                    name: '王蓉 - 数羊',
+                    time: '03:27'
+                },
+                {
+                    id: 5,
+                    name: '郑秀文 - 好好说【花椒之味电影主题曲】',
+                    time: '04:51'
+                },
+                {
+                    id: 6,
+                    name: '蒋雪儿 - 莫问归期',
+                    time: '03:39'
+                },
+                {
+                    id: 7,
+                    name: '小倩 - 言不由衷',
+                    time: '04:06'
+                },
+                {
+                    id: 8,
+                    name: '熊梓淇、赖雨濛 - 只想跟你在一起【国民老公2》影视剧片尾曲】',
+                    time: '03:21'
+                }
+            ],
+            Japan: [
+                {
+                    id: 1,
+                    name: '高垣彩陽 - Lasting Song【战姬绝唱SYMPHOGEAR XV片尾曲】',
+                    time: '04:29'
+                },
+                {
+                    id: 2,
+                    name: '米津玄師 - Ghosts of the Sea【海兽之子主题曲】',
+                    time: '03:54'
+                },
+                {
+                    id: 3,
+                    name: '麦小兜 - 假如我很快乐',
+                    time: '04:22'
+                },
+                {
+                    id: 4,
+                    name: '王蓉 - 数羊',
+                    time: '03:27'
+                },
+                {
+                    id: 5,
+                    name: '郑秀文 - 好好说【花椒之味电影主题曲】',
+                    time: '04:51'
+                },
+                {
+                    id: 6,
+                    name: '蒋雪儿 - 莫问归期',
+                    time: '03:39'
+                },
+                {
+                    id: 7,
+                    name: '小倩 - 言不由衷',
+                    time: '04:06'
+                },
+                {
+                    id: 8,
+                    name: '熊梓淇、赖雨濛 - 只想跟你在一起【国民老公2》影视剧片尾曲】',
+                    time: '03:21'
+                }
+            ]
+        },
+        hotMV: [
+            {
+                id: 1,
+                mvName: 'Burn',
+                picUrl: '../static/img/hotMV/1.jpg',
+                url: 'https://music.163.com/#/mv?id=148005'
+            },
+            {
+                id: 2,
+                mvName: '爱完不完',
+                picUrl: '../static/img/hotMV/2.jpg',
+                url: 'https://www.kugou.com/mvweb/html/mv_1457468.html'
+            },
+            {
+                id: 3,
+                mvName: '小欢喜',
+                picUrl: '../static/img/hotMV/3.jpg',
+                url: 'https://www.kugou.com/mvweb/html/mv_1460605.html'
+            }
         ]
     }
 
@@ -114,6 +326,15 @@ server.on('request',(req,res)=>{
             break;
         case '/hotList':
             reJson('hotList');
+            break;
+        case '/tabMenu':
+            reJson('tabMenu');
+            break;
+        case '/SongtabContent':
+            reJson('SongtabContent');
+            break;
+        case '/hotMV':
+            reJson('hotMV');
             break;
         default:
             break;

@@ -10,12 +10,13 @@
 			</div>
 		</div>
 		<div class="content clearFix">
+            <!-- secoundContent -->
 			<div class="secoundContent clearFix">
 				<!-- 精选歌单 -->
 				<div class="selectSongList">
 					<div class="itemTitle clearFix">
 						<h3>精选<b>歌单</b></h3>
-						<a href>更多</a>
+						<a href="javascript:;">更多</a>
 					</div>
 					<div class="itemContent clearFix">
 						<div class="itemList" v-for="(item,index) in songList" :key="index">
@@ -32,7 +33,7 @@
 				<div class="hotList">
 					<div class="itemTitle clearFix">
 						<h3>热门<b>榜单</b></h3>
-						<a href>更多</a>
+						<a href="javascript:;">更多</a>
 					</div>
 					<div class="itemContent">
                         <div class="itemList clearFix" v-for="(item,index) in hotList" :key="index">
@@ -53,6 +54,53 @@
 			</div>
             <!-- Ad Column -->
             <div class="adColumn"></div>
+            <!-- thirdContent -->
+            <div class="thirdContent clearFix">
+                <!-- 新歌首发 -->
+                <div class="newSongList fl">
+                    <div class="itemTitle clearFix">
+                        <h3>新歌<b>首发</b></h3>
+                        <a href="javascript:;">更多</a>
+                        <div class="songtabMenu fl">
+                            <span class="menuItem" v-for="(item,index) in tabMenu" :key="index" 
+                            v-text="item.title" @mouseenter="enter(item,item.tip)"
+                            :class="item.id === 1 ? 'active' : {'active':item.active}"></span>
+                        </div>
+                    </div>
+                    <div class="itemContent">
+                        <div class="SongtabContent">
+                            <ul v-for="(item,index) in SongtabContent" :key="index"
+                            :style="index === songListShow ? 'display:block;' : 'display:none;'">
+                                <li v-for="(item,index) in item" :key="index">
+                                    <a href="javascript:;"  class="clearFix">
+                                        <span class="songName fl">{{item.name}}</span>
+                                        <span class="songTime fr">{{item.time}}</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- 推荐MV -->
+                <div class="hotMV fr">
+                    <div class="itemTitle clearFix">
+                        <h3>热门<b>MV</b></h3>
+                        <a href="javascript:;">更多</a>
+                    </div>
+                    <div class="itemContent clearFix">
+                        <div class="mvList fl" v-for="(item,index) in hotMV" :key="index">
+                            <a :href="item.url">
+                                <div class="cover" style="visibility: hidden;"></div>
+                                <img :src="item.picUrl" alt="" width="100%" height="100%">
+                                <p class="mvName">{{item.mvName}}</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Ad Column -->
+            <div class="adColumn"></div>
+            
 		</div>
 	</div>
 </template>
@@ -63,7 +111,11 @@ export default {
 		return {
 			banner: [],
             songList: [],
-            hotList: []
+            hotList: [],
+            tabMenu: [],
+            songListShow: 'Chinese',
+            SongtabContent: {},
+            hotMV: []
 		}
 	},
 	components: {},
@@ -77,7 +129,28 @@ export default {
         this.axios.get('hotList').then((res)=>{
             this.hotList = res.data
         })
-	}
+        this.axios.get('tabMenu').then((res)=>{
+            this.tabMenu = res.data
+        })
+        this.axios.get('SongtabContent').then((res)=>{
+            this.SongtabContent = res.data
+        })
+        this.axios.get('hotMV').then((res)=>{
+            this.hotMV = res.data
+        })
+    },
+    methods: {
+        enter(item,area){
+            this.$nextTick(()=>{
+                this.tabMenu.forEach((i)=>{
+                    i.id = 0;
+                    this.$set(i,'active',false);
+                })
+                item.active = true;
+                this.songListShow = area;
+            })
+        }
+    }
 }
 </script>
 
@@ -183,7 +256,7 @@ export default {
 						height: 325px;
 						margin-right: 5px;
 						.des {
-							width: 309px;
+							width: 295px;
 							height: 20px;
 						}
 					}
@@ -262,6 +335,145 @@ export default {
             width: 100%;
             height: 80px;
             margin-top: 10px;
+        }
+        .thirdContent{
+            margin-top: 40px;
+            .newSongList{
+                width: 820px;
+                .itemTitle {
+					width: 100%;
+					height: 30px;
+					line-height: 30px;
+                    padding-bottom: 20px;
+                    margin-bottom: 10px;
+                    border-bottom: 1px solid #f0f0f0;
+					h3 {
+						float: left;
+						display: block;
+						width: 120px;
+                        height: 30px;
+                        margin-right: 25px;
+						color: #31c27c;
+						letter-spacing: 5px;
+						font-weight: 400;
+						b {
+							font-weight: 400;
+							color: #555;
+						}
+                    }
+                    a {
+						float: right;
+						font-size: 13px;
+						color: #999;
+					}
+					.songtabMenu{
+                        line-height: 30px;
+                        .menuItem{
+                            margin-right: 20px;
+                            font-size: 15px;
+                            cursor: pointer;
+                        }
+                    }
+                }
+                .itemContent{
+                    position: relative;
+                    height: 280px;
+                    overflow: hidden;
+                    .SongtabContent{
+                        margin-top: 0px;
+                        ul{
+                            li{
+                                height: 35px;
+                                line-height: 35px;
+                                font-size: 14px;
+                                a{
+                                    display: block;
+                                    padding: 0 10px;
+                                    color: #333;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            .hotMV{
+                width: 320px;
+				.itemTitle {
+					width: 100%;
+					height: 30px;
+					line-height: 30px;
+					padding-bottom: 20px;
+					h3 {
+						float: left;
+						display: block;
+						width: 120px;
+						height: 30px;
+						color: #31c27c;
+						letter-spacing: 5px;
+                        font-weight: 400;
+                        text-align: start;
+                        padding-left: 3px;
+						b {
+							font-weight: 400;
+							color: #555;
+						}
+					}
+					a {
+						float: right;
+						font-size: 13px;
+						color: #999;
+					}
+                }
+                .itemContent{
+                    width: 332px;
+                    .mvList{
+                        width: 154px;
+                        margin-right: 12px;
+                        a{
+                            display: block;
+                            font-size: 0;
+                            img{
+                                width: 154px;
+                                height: 84px;
+                            }
+                            .mvName{
+                                width: 154px;
+                                padding-top: 5px;
+                                font-size: 14px;
+                                text-align: start;
+                                text-overflow: ellipsis;
+                                white-space: nowrap;
+                                overflow: hidden;
+                                color: #444;
+                            }
+                        }
+                    }
+                    .mvList:nth-child(1){
+                        position: relative;
+                        width: 320px;
+                        height: 175px;
+                        margin-bottom: 8px;
+                        a{
+                            img{
+                                width: 320px;
+                                height: 175px;
+                            }
+                            .mvName{
+                                position: absolute;
+                                left: 0;
+                                right: 0;
+                                bottom: 0;
+                                width: 310px;
+                                height: 21px;
+                                line-height: 21px;
+                                padding: 3px 5px;
+                                background-color: rgba(0, 0, 0, 0.5);
+                                color: #fff;
+                            }
+                        }
+                    }
+                }
+            }
         }
 	}
 }

@@ -138,7 +138,11 @@
                 </div>
             </div>
             <!-- Ad Column -->
-            <div class="adColumn"></div>
+            <!-- <div class="adColumn"></div> -->
+            <!-- backtop  -->
+            <el-backtop :right="80" :bottom="80">
+                <div class="backtop"></div>
+            </el-backtop>
 		</div>
 	</div>
 </template>
@@ -654,6 +658,22 @@ export default {
                     }
                 }
             }
+        }
+        .backtop{
+            height: 100%;
+            width: 100%;
+            background: url('../../assets/scrollTop1.png') no-repeat center;
+            background-size: 100%;
+            border-radius: 50%;
+            
+            // box-shadow: 0 0 6px rgba(0,0,0, .12);
+            // text-align: center;
+            // line-height: 40px;
+            // color: #1989fa;
+        }
+        .backtop:hover{
+            background: url('../../assets/scrollTop2.png') no-repeat center;
+            background-size: 100%;
         }
 	}
 }

@@ -109,13 +109,13 @@ header {
 footer{
     width: 100%;
     height: 70px;
+    margin-top: 40px;
     background-color: #f2f2f2;
     .ft{
         width: 1200px;
         margin: 0 auto;
         line-height: 70px;
         font-size: 14px;
-        
         p{
             text-align: start;
         }

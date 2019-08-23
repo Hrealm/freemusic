@@ -38,6 +38,11 @@
 			</div>
 		</header>
 		<router-view />
+        <footer>
+            <div class="ft">
+                <p>Copyright&nbsp;&nbsp;© 2019 FreeMusic-Inc.All Rights Reserved </p>
+            </div>
+        </footer>
 	</div>
 </template>
 
@@ -100,5 +105,20 @@ header {
 			}
 		}
 	}
+}
+footer{
+    width: 100%;
+    height: 70px;
+    background-color: #f2f2f2;
+    .ft{
+        width: 1200px;
+        margin: 0 auto;
+        line-height: 70px;
+        font-size: 14px;
+        
+        p{
+            text-align: start;
+        }
+    }
 }
 </style>

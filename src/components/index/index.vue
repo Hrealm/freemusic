@@ -100,7 +100,45 @@
             </div>
             <!-- Ad Column -->
             <div class="adColumn"></div>
-            
+            <!-- lastContent -->
+            <div class="lastContent clearFix">
+                <!-- 热门电台 -->
+                <div class="hotRadio fl">
+                    <div class="itemTitle clearFix">
+                        <h3>热门<b>电台</b></h3>
+                        <a href="javascript:;">更多</a>
+                    </div>
+                    <div class="itemContent clearFix">
+                        <ul>
+                            <li class="fl" v-for="(item,index) in hotRadio" :key="index">
+                                <a href="javascript:;">
+                                    <div class="cover" style="visibility: hidden;"></div>
+                                    <img :src="item.picUrl" alt="" width="100%" height="100%">
+                                    <p class="radioName">{{item.name}}</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- 热门歌手 -->
+                <div class="hotSinger fr">
+                    <div class="itemTitle clearFix">
+                        <h3>热门<b>歌手</b></h3>
+                        <a href="javascript:;">更多</a>
+                    </div>
+                    <div class="itemContent">
+                        <div class="singerList" v-for="(item,index) in hotSinger" :key="index">
+                            <a href="javascript:;">
+                                <div class="cover" style="visibility: hidden;"></div>
+                                <img :src="item.picUrl" alt="" width="100%" height="100%">
+                                <p class="singerName">{{item.name}}</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Ad Column -->
+            <div class="adColumn"></div>
 		</div>
 	</div>
 </template>
@@ -115,7 +153,9 @@ export default {
             tabMenu: [],
             songListShow: 'Chinese',
             SongtabContent: {},
-            hotMV: []
+            hotMV: [],
+            hotRadio: [],
+            hotSinger: []
 		}
 	},
 	components: {},
@@ -137,6 +177,12 @@ export default {
         })
         this.axios.get('hotMV').then((res)=>{
             this.hotMV = res.data
+        })
+        this.axios.get('hotRadio').then((res)=>{
+            this.hotRadio = res.data
+        })
+        this.axios.get('hotSinger').then((res)=>{
+            this.hotSinger = res.data
         })
     },
     methods: {
@@ -469,6 +515,140 @@ export default {
                                 padding: 3px 5px;
                                 background-color: rgba(0, 0, 0, 0.5);
                                 color: #fff;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .lastContent{
+            margin-top: 40px;
+            .hotRadio{
+                width: 820px;
+                .itemTitle {
+					width: 100%;
+					height: 30px;
+					line-height: 30px;
+					padding-bottom: 30px;
+					h3 {
+						float: left;
+						display: block;
+						width: 120px;
+						height: 30px;
+						color: #31c27c;
+						letter-spacing: 5px;
+						font-weight: 400;
+						b {
+							font-weight: 400;
+							color: #555;
+						}
+					}
+					a {
+						float: right;
+						font-size: 13px;
+						color: #999;
+					}
+				}
+                .itemContent{
+                    ul {
+                        width: 864px;
+                        li{
+                            width: 100px;
+                            margin-right: 44px;
+                            margin-bottom: 23px;
+                            a{
+                                display: block;
+                                font-size: 0;
+                                img{
+                                    width: 100px;
+                                    height: 100px;
+                                    border-radius: 50%;
+                                }
+                                .radioName{
+                                    margin-top: 10px;
+                                    width: 100px;
+                                    line-height: 20px;
+                                    font-size: 14px;
+                                    text-overflow: ellipsis;
+                                    white-space: nowrap;
+                                    overflow: hidden;
+                                    color: #333;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            .hotSinger{
+                width: 320px;
+                .itemTitle {
+					width: 100%;
+					height: 30px;
+					line-height: 30px;
+					padding-bottom: 30px;
+					h3 {
+						float: left;
+						display: block;
+						width: 120px;
+						height: 30px;
+						color: #31c27c;
+						letter-spacing: 5px;
+						font-weight: 400;
+						b {
+							font-weight: 400;
+							color: #555;
+						}
+					}
+					a {
+						float: right;
+						font-size: 13px;
+						color: #999;
+					}
+				}
+                .itemContent{
+                    width: 330px;
+                    .singerList{
+                        position: relative;
+                        float: left;
+                        width: 105px;
+                        height: 105px;
+                        padding: 0;
+                        margin-right: 5px;
+                        a{
+                            display: block;
+                            font-size: 0;
+                            img{
+                                width: 105px;
+                                height: 105px;
+                            }
+                            .singerName{
+                                position: absolute;
+                                left: 0;
+                                right: 0;
+                                bottom: 0;
+                                width: 95px;
+                                height: 21px;
+                                padding: 3px 5px;
+                                color: #fff;
+                                font-size: 14px;
+                                text-overflow: ellipsis;
+                                white-space: nowrap;
+                                overflow: hidden;
+                                background: linear-gradient(transparent,rgba(0,0,0,0.6));
+                            }
+                        }
+                    }
+                    .singerList:nth-child(1), .singerList:nth-child(2){
+                        width: 160px;
+                        height: 160px;
+                        margin-bottom: 5px;
+                        a{
+                            img{
+                                width: 160px;
+                                height: 160px;
+                            }
+                            .singerName{
+                                width: 150px;
                             }
                         }
                     }

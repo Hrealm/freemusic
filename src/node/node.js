@@ -186,28 +186,28 @@ server.on('request',(req,res)=>{
                 },
                 {
                     id: 4,
-                    name: '王蓉 - 数羊',
-                    time: '03:27'
+                    name: 'Ava Max - Torn',
+                    time: '03:18'
                 },
                 {
                     id: 5,
-                    name: '郑秀文 - 好好说【花椒之味电影主题曲】',
-                    time: '04:51'
+                    name: 'XXXTENTACION、Rico Nasty - #PROUDCATOWNERREMIX',
+                    time: '02:37'
                 },
                 {
                     id: 6,
-                    name: '蒋雪儿 - 莫问归期',
-                    time: '03:39'
+                    name: 'Mura Masa、Clairo - I Don t Think I Can Do This Again',
+                    time: '03:42'
                 },
                 {
                     id: 7,
-                    name: '小倩 - 言不由衷',
-                    time: '04:06'
+                    name: 'BROCKHAMPTON - NO HALO',
+                    time: '04:19'
                 },
                 {
                     id: 8,
-                    name: '熊梓淇、赖雨濛 - 只想跟你在一起【国民老公2》影视剧片尾曲】',
-                    time: '03:21'
+                    name: 'Mena Massoud、Naomi Scott - Desert Moon (From  Aladdin )',
+                    time: '02:52'
                 }
             ],
             Korea: [
@@ -218,45 +218,45 @@ server.on('request',(req,res)=>{
                 },
                 {
                     id: 2,
-                    name: 'Simon Dominic、Loopy、Crush - make her dance',
-                    time: '02:50'
+                    name: '金请夏 - 그 끝에 그대 (at the end)【德鲁纳酒店 OST】',
+                    time: '03:44'
                 },
                 {
                     id: 3,
-                    name: '麦小兜 - 假如我很快乐',
-                    time: '04:22'
+                    name: 'Red Velvet - 어떤 별보다 (See the star)【德鲁纳酒店 OST】',
+                    time: '03:42'
                 },
                 {
                     id: 4,
-                    name: '王蓉 - 数羊',
-                    time: '03:27'
+                    name: 'Gummy - 기억하나요 내 모든 날과 그때를 (Remember me)【德鲁纳酒店 OST】',
+                    time: '03:48'
                 },
                 {
                     id: 5,
-                    name: '郑秀文 - 好好说【花椒之味电影主题曲】',
-                    time: '04:51'
+                    name: '라비(RAVI)、颂乐 - LEOPARD (Prod. Cosmic Boy)',
+                    time: '02:53'
                 },
                 {
                     id: 6,
-                    name: '蒋雪儿 - 莫问归期',
-                    time: '03:39'
+                    name: 'JINU(金秦禹)、MINO(宋旻浩) - CALL ANYTIME',
+                    time: '03:14'
                 },
                 {
                     id: 7,
-                    name: '小倩 - 言不由衷',
-                    time: '04:06'
+                    name: '尹美莱 - My Dream【新入史官具海玲 OST】',
+                    time: '03:54'
                 },
                 {
                     id: 8,
-                    name: '熊梓淇、赖雨濛 - 只想跟你在一起【国民老公2》影视剧片尾曲】',
-                    time: '03:21'
+                    name: 'SHAUN - 36.5',
+                    time: '03:36'
                 }
             ],
             Japan: [
                 {
                     id: 1,
-                    name: '高垣彩陽 - Lasting Song【战姬绝唱SYMPHOGEAR XV片尾曲】',
-                    time: '04:29'
+                    name: 'GENERATIONS from EXILE TRIBE - DREAMERS',
+                    time: '04:35'
                 },
                 {
                     id: 2,
@@ -265,33 +265,33 @@ server.on('request',(req,res)=>{
                 },
                 {
                     id: 3,
-                    name: '麦小兜 - 假如我很快乐',
-                    time: '04:22'
+                    name: 'BTS（防弹少年团） - Lights',
+                    time: '04:52'
                 },
                 {
                     id: 4,
-                    name: '王蓉 - 数羊',
-                    time: '03:27'
+                    name: '須田景凪 - Veil【炎炎消防队片尾曲】',
+                    time: '03:29'
                 },
                 {
                     id: 5,
-                    name: '郑秀文 - 好好说【花椒之味电影主题曲】',
-                    time: '04:51'
+                    name: 'Aimer - Torches【海盗战记片尾曲】',
+                    time: '04:54'
                 },
                 {
                     id: 6,
-                    name: '蒋雪儿 - 莫问归期',
-                    time: '03:39'
+                    name: 'TWICE - Happy Happy',
+                    time: '03:27'
                 },
                 {
                     id: 7,
-                    name: '小倩 - 言不由衷',
-                    time: '04:06'
+                    name: 'Monsta X - Carry on',
+                    time: '03:39'
                 },
                 {
                     id: 8,
-                    name: '熊梓淇、赖雨濛 - 只想跟你在一起【国民老公2》影视剧片尾曲】',
-                    time: '03:21'
+                    name: 'GOT7 - 備忘録',
+                    time: '03:08'
                 }
             ]
         },
@@ -314,6 +314,95 @@ server.on('request',(req,res)=>{
                 picUrl: '../static/img/hotMV/3.jpg',
                 url: 'https://www.kugou.com/mvweb/html/mv_1460605.html'
             }
+        ],
+        hotRadio: [
+            {
+                id: 1,
+                name: '向北',
+                picUrl: '../static/img/hotRadio/1.jpg'
+            },
+            {
+                id: 2,
+                name: 'IEMC国际电子音乐大赛',
+                picUrl: '../static/img/hotRadio/2.jpg'
+            },
+            {
+                id: 3,
+                name: 'XDeep Music',
+                picUrl: '../static/img/hotRadio/3.jpg'
+            },
+            {
+                id: 4,
+                name: 'Monstercat: Call of the Wild',
+                picUrl: '../static/img/hotRadio/4.jpg'
+            },
+            {
+                id: 5,
+                name: 'PurpleDeep Radio',
+                picUrl: '../static/img/hotRadio/5.jpg'
+            },
+            {
+                id: 6,
+                name: 'FEVER Electronic Music Series',
+                picUrl: '../static/img/hotRadio/6.jpg'
+            },
+            {
+                id: 7,
+                name: '晚安城市',
+                picUrl: '../static/img/hotRadio/7.jpg'
+            },
+            {
+                id: 8,
+                name: '小小世界',
+                picUrl: '../static/img/hotRadio/8.jpg'
+            },
+            {
+                id: 9,
+                name: '潇洒办事处',
+                picUrl: '../static/img/hotRadio/9.jpg'
+            },
+            {
+                id: 10,
+                name: 'Tt-GT音乐电台',
+                picUrl: '../static/img/hotRadio/10.jpg'
+            },
+            {
+                id: 11,
+                name: '米莉.听见花开',
+                picUrl: '../static/img/hotRadio/11.jpg'
+            },
+            {
+                id: 12,
+                name: '就在不远方',
+                picUrl: '../static/img/hotRadio/12.jpg'
+            }
+        ],
+        hotSinger: [
+            {
+                id: 1,
+                name: 'Alan Walker',
+                picUrl: '../static/img/hotSinger/1.jpg'
+            },
+            {
+                id: 2,
+                name: 'Taylor Swift',
+                picUrl: '../static/img/hotSinger/2.jpg'
+            },
+            {
+                id: 3,
+                name: 'Imagine Dragons',
+                picUrl: '../static/img/hotSinger/3.jpg'
+            },
+            {
+                id: 4,
+                name: 'LINKIN PARK',
+                picUrl: '../static/img/hotSinger/4.jpg'
+            },
+            {
+                id: 5,
+                name: 'Michael Jackson',
+                picUrl: '../static/img/hotSinger/5.jpg'
+            }
         ]
     }
 
@@ -335,6 +424,12 @@ server.on('request',(req,res)=>{
             break;
         case '/hotMV':
             reJson('hotMV');
+            break;
+        case '/hotRadio':
+            reJson('hotRadio');
+            break;
+        case '/hotSinger':
+            reJson('hotSinger');
             break;
         default:
             break;

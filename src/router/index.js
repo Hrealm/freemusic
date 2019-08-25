@@ -5,6 +5,11 @@ import Singer from '../components/singer/singer'
 import Radio from '../components/radio/radio'
 import Mv from '../components/mv/mv'
 import Leaderboard from '../components/leaderboard/leaderboard'
+import PlayMusic from '../components/index/playMusic'
+import Aplayer from 'vue-aplayer'
+
+//安装全局组件 vue-aplayer
+Vue.component('aplayer',Aplayer);
 
 //安装element-ui 组件库
 import ElementUI from 'element-ui';
@@ -14,6 +19,7 @@ Vue.use(ElementUI)
 //导入插件axios 挂载属性
 import Axios from 'axios'
 Axios.defaults.baseURL = 'http://localhost:8899/'
+// Axios.defaults.baseURL = 'http://10.4.135.60:8899/'
 Vue.prototype.axios = Axios
 
 Vue.use(Router)
@@ -49,6 +55,11 @@ export default new Router({
             path: '/leaderboard',
             name: 'leaderboard',
             component: Leaderboard
+        },
+        {
+            path: '/play.html',
+            name: 'playmusic',
+            component: PlayMusic
         }
     ]
 })

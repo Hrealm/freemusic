@@ -20,12 +20,12 @@
 					</div>
 					<div class="itemContent clearFix">
 						<div class="itemList" v-for="(item,index) in songList" :key="index">
-							<p class="PlayNum">
-								<span>{{item.PlayNum}}万</span>
-							</p>
-							<img :src="item.picUrl" alt width="100%" height="100%" />
-							<p class="des">{{item.des}}</p>
-							<div class="cover" style="visibility: hidden;"></div>
+                            <router-link :to="{name: 'playmusic'}">
+                                <p class="PlayNum"><span>{{item.PlayNum}}万</span></p>
+                                <img :src="item.picUrl" alt width="100%" height="100%" />
+                                <p class="des">{{item.des}}</p>
+                                <div class="cover" style="visibility: hidden;"></div>
+                            </router-link>
 						</div>
 					</div>
 				</div>
@@ -665,11 +665,6 @@ export default {
             background: url('../../assets/scrollTop1.png') no-repeat center;
             background-size: 100%;
             border-radius: 50%;
-            
-            // box-shadow: 0 0 6px rgba(0,0,0, .12);
-            // text-align: center;
-            // line-height: 40px;
-            // color: #1989fa;
         }
         .backtop:hover{
             background: url('../../assets/scrollTop2.png') no-repeat center;

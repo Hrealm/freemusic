@@ -19,7 +19,7 @@ Vue.use(ElementUI)
 //导入插件axios 挂载属性
 import Axios from 'axios'
 Axios.defaults.baseURL = 'http://localhost:8899/'
-// Axios.defaults.baseURL = 'http://10.4.135.60:8899/'
+// Axios.defaults.baseURL = 'http://10.3.210.171:8899/'
 Vue.prototype.axios = Axios
 
 Vue.use(Router)

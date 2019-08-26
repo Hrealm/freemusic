@@ -20,7 +20,7 @@
 					</div>
 					<div class="itemContent clearFix">
 						<div class="itemList" v-for="(item,index) in songList" :key="index">
-                            <router-link :to="{name: 'playmusic'}">
+                            <router-link :to="{name: 'playmusic',query:{title:'songList',id:item.id}}">
                                 <p class="PlayNum"><span>{{item.PlayNum}}万</span></p>
                                 <img :src="item.picUrl" alt width="100%" height="100%" />
                                 <p class="des">{{item.des}}</p>
@@ -72,10 +72,10 @@
                             <ul v-for="(item,index) in SongtabContent" :key="index"
                             :style="index === songListShow ? 'display:block;' : 'display:none;'">
                                 <li v-for="(item,index) in item" :key="index">
-                                    <a href="javascript:;"  class="clearFix">
+                                    <router-link class="clearFix" :to="{name:'playmusic',query:{title:'SongtabContent',area:songListShow,index:(item.id-1)}}">
                                         <span class="songName fl">{{item.name}}</span>
                                         <span class="songTime fr">{{item.time}}</span>
-                                    </a>
+                                    </router-link>
                                 </li>
                             </ul>
                         </div>

@@ -1,8 +1,10 @@
 const http = require('http');
 const url = require('url');
+let songList = require('./songList.js');
 let server = http.createServer();
 server.on('request',(req,res)=>{
-    const pathName = url.parse(req.url,true).pathname;
+    const parseObj = url.parse(req.url,true);
+    const pathName = parseObj.pathname;
     res.writeHeader(200,{
         'Content-Type': 'text/html;charset=utf-8',
         'Access-Control-Allow-Origin': '*'
@@ -30,50 +32,7 @@ server.on('request',(req,res)=>{
                 picUrl: '../static/img/banner/5.jpg'
             }
         ],
-        songList: [
-            {
-                id: 1,
-                PlayNum: 482,
-                des: 'Emerging artists you should get to know.',
-                picUrl: '../static/img/songList/1.jpg'
-            },
-            {
-                id: 2,
-                PlayNum: 928,
-                des: '特色女嗓 · 爆破型鬼才声线集',
-                picUrl: '../static/img/songList/2.jpg'
-            },
-            {
-                id: 3,
-                PlayNum: 83,
-                des: '精选欧美电子☄| 感受深邃内心的旋律',
-                picUrl: '../static/img/songList/3.jpg'
-            },
-            {
-                id: 4,
-                PlayNum: 841,
-                des: '【旋律控】超级好听的欧美良曲',
-                picUrl: '../static/img/songList/4.jpg'
-            },
-            {
-                id: 5,
-                PlayNum: 103,
-                des: 'Urban · 历届格莱美精选集',
-                picUrl: '../static/img/songList/5.jpg'
-            },
-            {
-                id: 6,
-                PlayNum: 258,
-                des: '薄荷苏打水 | 夏日清凉必备曲目 纯音',
-                picUrl: '../static/img/songList/6.jpg'
-            },
-            {
-                id: 7,
-                PlayNum: 261,
-                des: 'Bass House | 惊艳Drop 低频Bass',
-                picUrl: '../static/img/songList/7.jpg'
-            },
-        ],
+        songList: songList,
         hotList: [
             {
                 id: 1,
@@ -130,7 +89,14 @@ server.on('request',(req,res)=>{
                 {
                     id: 1,
                     name: '陈雪凝 - 十八',
-                    time: '04:31'
+                    time: '04:31',
+                    musicInfo: {
+                        title: '特色女嗓 · 爆破型鬼才声线集',
+                        artist: 'Hrealm',
+                        src: 'https://music.163.com/song/media/outer/url?id=1298111231.mp3',
+                        pic: '../static/img/songList/1.jpg',
+                        lrc: "[00:00.00]lrc here\n[00:01.00]aplayer"
+                    }
                 },
                 {
                     id: 2,
@@ -437,7 +403,16 @@ server.on('request',(req,res)=>{
     }
 
     function reJson(route) {
-        res.end(JSON.stringify(data[route]));
+        if(parseObj.query.id){
+            let id = parseObj.query.id;
+            //根据Id取出数组中指定的对象
+            let result = data[route].find((item)=>{
+                return item.id == id;
+            })
+            res.end(JSON.stringify(result));
+        }else{
+            res.end(JSON.stringify(data[route]));
+        }
     }
 });
 

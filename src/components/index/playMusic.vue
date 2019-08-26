@@ -1,24 +1,54 @@
 <template>
     <div class="wrap">
         <div class="playMusic">
-            <aplayer autoplay :music="{
+            <!-- <aplayer autoplay :music="{
                 title: '特色女嗓 · 爆破型鬼才声线集',
                 artist: 'Hrealm',
                 src: 'https://music.163.com/song/media/outer/url?id=1298111231.mp3',
                 pic: '../static/img/songList/2.jpg',
                 theme: '#31C27C'
-            }"></aplayer>
+            }"></aplayer> -->
+            <aplayer autoplay :music="songList" showLrc :list="list" repeat="repeat-all" v-if="player"></aplayer>
         </div>
     </div>
 
 </template>
 
 <script>
+import { async } from 'q';
 export default {
     data() {
-        return {}
+        return {
+            songList: {},
+            list: [],
+            musicObj: {},
+            player: false
+        }
     },
-    components: {}
+    components: {},
+    created(){
+        let id = this.$route.query.id;
+        const title = this.$route.query.title;
+        if(id){
+            let url = title + '?id=' + id;
+            this.axios.get(url).then((res)=>{
+                this.musicObj = res.data
+                this.list = this.musicObj.musicList;
+                this.songList = this.list[0];
+                this.player = true;
+            })
+        }
+        if(title=='SongtabContent'){
+            let index = this.$route.query.index;
+            let area = this.$route.query.area;
+            this.axios.get(title).then((res)=>{
+                this.musicObj = res.data;
+                this.songList = this.musicObj[area][index].musicInfo;
+                this.player = true;
+            })
+        }
+    }
+    
 }
 </script>
 

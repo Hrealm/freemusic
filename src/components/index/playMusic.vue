@@ -10,7 +10,17 @@
             <div class="recommend fl">
                 <div class="itemTitle clearFix">
                     <h3>相关<b>推荐</b></h3>
-                    <a href="javascript:;">更多</a>
+                </div>
+                <div class="itemContent clearFix">
+                    <ul>
+                        <li class="fl" v-for="(item,index) in hotRadio" :key="index">
+                            <a href="javascript:;">
+                                <div class="cover" style="visibility: hidden;"></div>
+                                <img :src="item.picUrl" alt="" width="100%" height="100%">
+                                <p class="radioName">{{item.name}}</p>
+                            </a>
+                        </li>
+                    </ul>
                 </div>
             </div>
             <!--  -->
@@ -27,7 +37,8 @@ export default {
             songList: {},
             list: [],
             musicObj: {},
-            player: false
+            player: false,
+            hotRadio: []
         }
     },
     components: {},
@@ -52,6 +63,9 @@ export default {
                 this.player = true;
             })
         }
+        this.axios.get('hotRadio').then((res)=>{
+            this.hotRadio = res.data
+        })
     }
     
 }
@@ -90,12 +104,36 @@ export default {
 							color: #555;
 						}
 					}
-					a {
-						float: right;
-						font-size: 13px;
-						color: #999;
-					}
 				}
+                .itemContent{
+                    ul {
+                        width: 864px;
+                        li{
+                            width: 100px;
+                            margin-right: 44px;
+                            margin-bottom: 23px;
+                            a{
+                                display: block;
+                                font-size: 0;
+                                img{
+                                    width: 100px;
+                                    height: 100px;
+                                    border-radius: 50%;
+                                }
+                                .radioName{
+                                    margin-top: 10px;
+                                    width: 100px;
+                                    line-height: 20px;
+                                    font-size: 14px;
+                                    text-overflow: ellipsis;
+                                    white-space: nowrap;
+                                    overflow: hidden;
+                                    color: #333;
+                                }
+                            }
+                        }
+                    }
+                }
             }
         }
     }

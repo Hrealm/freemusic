@@ -8,7 +8,7 @@ let songtabContent = {
                 title: '十八',
                 artist: '陈雪凝',
                 src: 'https://music.163.com/song/media/outer/url?id=1385098565.mp3',
-                pic: '../static/img/songList/1.jpg',
+                pic: '../static/img/songtabContent/Chinese/1.jpg',
                 lrc: "[00:00.00]lrc here\n[00:01.00]aplayer"
             }
         },

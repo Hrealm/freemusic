@@ -1,14 +1,10 @@
 <template>
     <div class="wrap">
         <div class="playMusic">
-            <!-- <aplayer autoplay :music="{
-                title: '特色女嗓 · 爆破型鬼才声线集',
-                artist: 'Hrealm',
-                src: 'https://music.163.com/song/media/outer/url?id=1298111231.mp3',
-                pic: '../static/img/songList/2.jpg',
-                theme: '#31C27C'
-            }"></aplayer> -->
             <aplayer autoplay :music="songList" showLrc :list="list" repeat="repeat-all" v-if="player"></aplayer>
+        </div>
+        <div class="recommend">
+            
         </div>
     </div>
 

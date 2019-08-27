@@ -9,7 +9,7 @@ let songlist = [
                 title: 'Beautiful',
                 artist: 'Bazzi/Camila Cabello',
                 src: 'https://music.163.com/song/media/outer/url?id=1298111231.mp3',
-                pic: '../static/img/songList/1.jpg',
+                pic: '../static/img/songList/theme1/1.png',
                 lrc: "[00:00.00]lrc here\n[00:01.00]aplayer",
             },
             {

@@ -23,7 +23,19 @@
                     </ul>
                 </div>
             </div>
-            <!--  -->
+            <!-- 相关MV -->
+            <div class="relatedMV fr">
+                <div class="itemTitle clearFix">
+                    <h3>相关<b>MV</b></h3>
+                </div>
+                <div class="itemContent">
+                    <a href="javascript:;">
+                        <div class="cover" style="visibility: hidden;"></div>
+                        <img src="../../../static/img/hotMV/5.jpg" alt="" width="100%" height="100%">
+                        <p class="mvName">Live Piano Session II</p>
+                    </a>
+                </div>
+            </div>
         </div>
 
     </div>
@@ -83,7 +95,7 @@ export default {
         .secoundContent{
             width: 1200px;
             margin: 0 auto;
-            margin-top: 40px;
+            margin-top: 60px;
             .recommend{
                 width: 820px;
                 .itemTitle {
@@ -118,7 +130,6 @@ export default {
                                 img{
                                     width: 100px;
                                     height: 100px;
-                                    border-radius: 50%;
                                 }
                                 .radioName{
                                     margin-top: 10px;
@@ -131,6 +142,54 @@ export default {
                                     color: #333;
                                 }
                             }
+                        }
+                    }
+                }
+            }
+            .relatedMV{
+                width: 320px;
+				.itemTitle {
+					width: 100%;
+					height: 30px;
+					line-height: 30px;
+					padding-bottom: 30px;
+					h3 {
+						float: left;
+						display: block;
+						width: 120px;
+						height: 30px;
+						color: #31c27c;
+						letter-spacing: 5px;
+                        font-weight: 400;
+                        text-align: start;
+                        padding-left: 3px;
+						b {
+							font-weight: 400;
+							color: #555;
+						}
+					}
+					a {
+						float: right;
+						font-size: 13px;
+						color: #999;
+					}
+                }
+                .itemContent{
+                    width: 320px;
+                    a{
+                        display: block;
+                        img{
+                            width: 320px;
+                            height: 180px;
+                        }
+                        .mvName{
+                            font-size: 14px;
+                            line-height: 31px;
+                            color: #2c3e50;
+                            text-align: start;
+                        }
+                        .mvName:hover{
+                            color: #31c27c;
                         }
                     }
                 }

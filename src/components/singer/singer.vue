@@ -8,7 +8,7 @@
         <div class="main">
             <div class="singerTab">
                 <span class="title" v-for="(item,index) in singerTab" :key="index" v-text="item.classname"
-                :class="item.classid === singerListId ? 'selectTitle' : '' " @click="getSingerList(item.classid)"></span>
+                :class="item.classid === singerListId ? 'selectTitle' : 'tab' " @click="getSingerList(item.classid)"></span>
             </div>
             <div class="itemContent">
                 <div class="singerList clearFix">
@@ -100,9 +100,9 @@ export default {
                 padding: 6px 8px;
                 cursor: pointer;
             }
-            // .title:hover{
-            //     // color: #31C27C;
-            // }
+            .tab:hover{
+                color: #31C27C;
+            }
             .selectTitle{
                 color: #fff;
                 background-color: #31C27C;

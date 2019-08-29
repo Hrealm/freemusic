@@ -22,7 +22,7 @@
 						<div class="itemList" v-for="(item,index) in songList" :key="index">
                             <router-link :to="{name: 'playmusic',query:{title:'songList',id:item.id}}">
                                 <p class="PlayNum"><span>{{item.PlayNum}}万</span></p>
-                                <img :src="item.picUrl" alt width="100%" height="100%" />
+                                <img :src="item.picUrl" alt width="100%" height="100%" v-lazy="item.picUrl"/>
                                 <p class="des">{{item.des}}</p>
                                 <div class="cover" style="visibility: hidden;"></div>
                             </router-link>
@@ -40,7 +40,7 @@
                             <a href="javascript:;">
                                 <div class="cover" style="visibility: hidden;"></div>
                                 <span class="right" style="visibility: hidden;"></span>
-                                <img :src="item.picUrl" alt=""  width="100%" height="100%">
+                                <img :src="item.picUrl" alt=""  width="100%" height="100%" v-lazy="item.picUrl">
                                 <div class="list fr">
                                     <dl>
                                         <dt>{{item.title}}</dt>
@@ -91,7 +91,7 @@
                         <div class="mvList fl" v-for="(item,index) in hotMV" :key="index">
                             <a :href="item.url">
                                 <div class="cover" style="visibility: hidden;"></div>
-                                <img :src="item.picUrl" alt="" width="100%" height="100%">
+                                <img :src="item.picUrl" alt="" width="100%" height="100%" v-lazy="item.picUrl">
                                 <p class="mvName">{{item.mvName}}</p>
                             </a>
                         </div>
@@ -113,7 +113,7 @@
                             <li class="fl" v-for="(item,index) in hotRadio" :key="index">
                                 <a href="javascript:;">
                                     <div class="cover" style="visibility: hidden;"></div>
-                                    <img :src="item.picUrl" alt="" width="100%" height="100%">
+                                    <img :src="item.picUrl" alt="" width="100%" height="100%" v-lazy="item.picUrl">
                                     <p class="radioName">{{item.name}}</p>
                                 </a>
                             </li>
@@ -130,7 +130,7 @@
                         <div class="singerList" v-for="(item,index) in hotSinger" :key="index">
                             <a href="javascript:;">
                                 <div class="cover" style="visibility: hidden;"></div>
-                                <img :src="item.picUrl" alt="" width="100%" height="100%">
+                                <img :src="item.picUrl" alt="" width="100%" height="100%" v-lazy="item.picUrl">
                                 <p class="singerName">{{item.name}}</p>
                             </a>
                         </div>

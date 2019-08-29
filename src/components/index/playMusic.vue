@@ -16,7 +16,7 @@
                         <li class="fl" v-for="(item,index) in hotRadio" :key="index">
                             <a href="javascript:;">
                                 <div class="cover" style="visibility: hidden;"></div>
-                                <img :src="item.picUrl" alt="" width="100%" height="100%">
+                                <img :src="item.picUrl" alt="" width="100%" height="100%" v-lazy="item.picUrl">
                                 <p class="radioName">{{item.name}}</p>
                             </a>
                         </li>

@@ -63,8 +63,8 @@
                         <a href="javascript:;">更多</a>
                         <div class="songtabMenu fl">
                             <span class="menuItem" v-for="(item,index) in tabMenu" :key="index" 
-                            v-text="item.title" @mouseenter="enter(item,item.tip)"
-                            :class="item.id === 1 ? 'active' : {'active':item.active}"></span>
+                            v-text="item.title" @mouseenter="enter(item.tip)"
+                            :class="item.tip === songListShow ? 'active' : ''"></span>
                         </div>
                     </div>
                     <div class="itemContent">
@@ -190,13 +190,8 @@ export default {
         })
     },
     methods: {
-        enter(item,area){
+        enter(area){
             this.$nextTick(()=>{
-                this.tabMenu.forEach((i)=>{
-                    i.id = 0;
-                    this.$set(i,'active',false);
-                })
-                item.active = true;
                 this.songListShow = area;
             })
         }

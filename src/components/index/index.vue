@@ -4,7 +4,7 @@
 			<div class="banner">
 				<el-carousel :interval="4000" type="card" height="305px">
 					<el-carousel-item v-for="(item,index) in banner" :key="index">
-						<img :src="item.picUrl" alt width="100%" height="100%" />
+						<img :src="item.picUrl" alt width="100%" height="100%" v-lazy="item.picUrl"/>
 					</el-carousel-item>
 				</el-carousel>
 			</div>
@@ -164,28 +164,28 @@ export default {
 	},
 	components: {},
 	created() {
-		this.axios.get('banner').then(res => {
+		this.axios.get('/api/banner').then(res => {
 			this.banner = res.data
 		})
-		this.axios.get('songList').then(res => {
+		this.axios.get('/api/songList').then(res => {
 			this.songList = res.data
         })
-        this.axios.get('hotList').then((res)=>{
+        this.axios.get('/api/hotList').then((res)=>{
             this.hotList = res.data
         })
-        this.axios.get('tabMenu').then((res)=>{
+        this.axios.get('/api/tabMenu').then((res)=>{
             this.tabMenu = res.data
         })
-        this.axios.get('SongtabContent').then((res)=>{
+        this.axios.get('/api/SongtabContent').then((res)=>{
             this.SongtabContent = res.data
         })
-        this.axios.get('hotMV').then((res)=>{
+        this.axios.get('/api/hotMV').then((res)=>{
             this.hotMV = res.data
         })
-        this.axios.get('hotRadio').then((res)=>{
+        this.axios.get('/api/hotRadio').then((res)=>{
             this.hotRadio = res.data
         })
-        this.axios.get('hotSinger').then((res)=>{
+        this.axios.get('/api/hotSinger').then((res)=>{
             this.hotSinger = res.data
         })
     },

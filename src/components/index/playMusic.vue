@@ -58,7 +58,7 @@ export default {
         let id = this.$route.query.id;
         const title = this.$route.query.title;
         if(id){
-            let url = title + '?id=' + id;
+            let url ='/api/' + title + '?id=' + id;
             this.axios.get(url).then((res)=>{
                 this.musicObj = res.data
                 this.list = this.musicObj.musicList;
@@ -69,13 +69,13 @@ export default {
         if(title=='SongtabContent'){
             let index = this.$route.query.index;
             let area = this.$route.query.area;
-            this.axios.get(title).then((res)=>{
+            this.axios.get('/api/' + title).then((res)=>{
                 this.musicObj = res.data;
                 this.songList = this.musicObj[area][index].musicInfo;
                 this.player = true;
             })
         }
-        this.axios.get('hotRadio').then((res)=>{
+        this.axios.get('/api/hotRadio').then((res)=>{
             this.hotRadio = res.data
         })
     }

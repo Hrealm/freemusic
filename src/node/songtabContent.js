@@ -43,7 +43,7 @@ let songtabContent = {
             musicInfo: {
                 title: '数羊',
                 artist: '王蓉',
-                src: 'http://183.60.23.27/amobile.music.tc.qq.com/C400002ZeqAj2x1ZTD.m4a?guid=3518953300&vkey=B796FD3183E30507659DE7F9954344EF70EA37B46C98F76AB8966C1610E9DF1CC971D6151953F876363C49CFEB87440D817DDB8384582126&uin=3117&fromtag=66',
+                src: 'http://113.105.155.15/amobile.music.tc.qq.com/C400002ZeqAj2x1ZTD.m4a?guid=3518953300&vkey=B2A5DBFF8CD06743B5E8B4ECAD0F3944663584D156E15FECA6360E87CC066EDAAA6FDEA8EC47701F620B714E31A2D7998676251503424F9E&uin=0&fromtag=66',
                 pic: '../static/img/songtabContent/Chinese/4.jpg',
                 lrc: "[00:00.00]lrc here\n[00:01.00]aplayer"
             }

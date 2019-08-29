@@ -10,7 +10,24 @@ module.exports = {
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    proxyTable: {},
+    //设置代理
+    proxyTable: {
+        "/api":{
+            target: 'http://localhost:8899/',
+            changeOrigin: true,
+            pathRewrite:{
+                '^/api': '/'
+            }
+        },
+        "/kugouApi":{
+            target:'http://m.kugou.com/',
+            changeOrigin:true,
+            pathRewrite:{
+                '^/kugouApi':'/'
+            }
+        }
+
+    },
 
     // Various Dev Server settings
     host: 'localhost', // can be overwritten by process.env.HOST

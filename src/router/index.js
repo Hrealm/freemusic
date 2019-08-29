@@ -18,9 +18,14 @@ Vue.use(ElementUI)
 
 //导入插件axios 挂载属性
 import Axios from 'axios'
-Axios.defaults.baseURL = 'http://localhost:8899/'
+// Axios.defaults.baseURL = 'http://localhost:8899/'
 // Axios.defaults.baseURL = 'http://10.3.210.171:8899/'
 Vue.prototype.axios = Axios
+
+//懒加载
+import VueLazyload from 'vue-lazyload'
+Vue.use(VueLazyload)
+
 
 Vue.use(Router)
 

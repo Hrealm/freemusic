@@ -94,6 +94,7 @@ export default {
         margin: 0 auto;
         .singerTab{
             margin: 40px 0;
+            text-align: center;
             .title{
                 font-size: 14px;
                 margin: 0 6px;
@@ -116,6 +117,7 @@ export default {
                     li{
                         width: 244px;
                         margin-bottom: 20px;
+                        text-align: center;
                         overflow: hidden;
                         .singerListBox{
                             margin: 0 10px;

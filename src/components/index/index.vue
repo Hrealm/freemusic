@@ -457,7 +457,7 @@ export default {
 						letter-spacing: 5px;
                         font-weight: 400;
                         text-align: start;
-                        padding-left: 3px;
+                        // padding-left: 3px;
 						b {
 							font-weight: 400;
 							color: #555;
@@ -555,6 +555,7 @@ export default {
                             width: 100px;
                             margin-right: 44px;
                             margin-bottom: 23px;
+                            text-align: center;
                             a{
                                 display: block;
                                 font-size: 0;

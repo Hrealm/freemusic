@@ -194,6 +194,23 @@ server.on('request',(req,res)=>{
                 name: 'Michael Jackson',
                 picUrl: '../static/img/hotSinger/5.jpg'
             }
+        ],
+        navList: [
+            {
+                id: 1,
+                title: '飙升榜',
+                tip: 'SoaringList'
+            },
+            {
+                id: 2,
+                title: 'TOP500',
+                tip: 'top500'
+            },
+            {
+                id: 3,
+                title: '网络红歌榜',
+                tip: 'HotSonglist'
+            }
         ]
     }
 
@@ -221,6 +238,9 @@ server.on('request',(req,res)=>{
             break;
         case '/hotSinger':
             reJson('hotSinger');
+            break;
+        case '/navList':
+            reJson('navList');
             break;
         default:
             break;

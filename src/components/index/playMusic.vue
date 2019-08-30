@@ -124,6 +124,7 @@ export default {
                             width: 100px;
                             margin-right: 44px;
                             margin-bottom: 23px;
+                            text-align: center;
                             a{
                                 display: block;
                                 font-size: 0;

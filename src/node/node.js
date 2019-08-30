@@ -2,6 +2,7 @@ const http = require('http');
 const url = require('url');
 let songList = require('./songList.js');
 let songtabContent = require('./songtabContent.js');
+let songlistContent = require('./songlistContent.js');
 let server = http.createServer();
 server.on('request',(req,res)=>{
     const parseObj = url.parse(req.url,true);
@@ -211,7 +212,8 @@ server.on('request',(req,res)=>{
                 title: '网络红歌榜',
                 tip: 'HotSonglist'
             }
-        ]
+        ],
+        songlistContent: songlistContent
     }
 
     switch (pathName){
@@ -241,6 +243,9 @@ server.on('request',(req,res)=>{
             break;
         case '/navList':
             reJson('navList');
+            break;
+        case '/songlistContent':
+            reJson('songlistContent');
             break;
         default:
             break;

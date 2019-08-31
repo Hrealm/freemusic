@@ -69,6 +69,7 @@ export default {
 <style scoped lang="scss">
 .wrap{
     width: 100%;
+    min-height: 100vh;
     background: linear-gradient(#f3f3f3, #ffffff);
     .main{
         width: 1200px;

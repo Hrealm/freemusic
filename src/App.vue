@@ -18,7 +18,7 @@
 								<span>歌手</span>
 							</router-link>
 						</li>
-						<li>
+						<!-- <li>
 							<router-link :to="{name:'radio'}">
 								<span>电台</span>
 							</router-link>
@@ -27,10 +27,15 @@
 							<router-link :to="{name:'mv'}">
 								<span>MV</span>
 							</router-link>
-						</li>
+						</li> -->
 						<li>
 							<router-link :to="{name:'leaderboard'}">
 								<span>排行榜</span>
+							</router-link>
+						</li>
+                        <li>
+							<router-link :to="{name:'search'}">
+								<span>搜歌</span>
 							</router-link>
 						</li>
 					</ul>

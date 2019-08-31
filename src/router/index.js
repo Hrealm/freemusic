@@ -5,6 +5,7 @@ import Singer from '../components/singer/singer'
 import Radio from '../components/radio/radio'
 import Mv from '../components/mv/mv'
 import Leaderboard from '../components/leaderboard/leaderboard'
+import Search from '../components/search/search'
 import PlayMusic from '../components/index/playMusic'
 import Aplayer from 'vue-aplayer'
 
@@ -60,6 +61,11 @@ export default new Router({
             path: '/leaderboard',
             name: 'leaderboard',
             component: Leaderboard
+        },
+        {
+            path: '/search',
+            name: 'search',
+            component: Search
         },
         {
             path: '/play.html',

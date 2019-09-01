@@ -21,7 +21,7 @@
                     <li class="time fr">时长</li>
                 </ul>
                 <ul class="listContent">
-                    <li class="tip" :style="showTip == '' ? 'display:none;' : 'diplay:block;'">没有搜索到
+                    <li class="tip" :style="showTip ? 'display:none;' : 'diplay:block;'">没有搜索到
                         <b :style="keyword == '' ? 'display:none;' : 'diplay:block;'">"{{keyword}}"</b>
                         相关的歌曲</li>
                     <li class="listItem" v-for="(item,index) in searchInfo" :key="index">
@@ -44,7 +44,7 @@ export default {
             searchTab: ['单曲','MV','歌单'],
             keyword: '',
             searchInfo: [],
-            showTip: ''
+            showTip: false
         }
     },
     components: {},
@@ -57,7 +57,7 @@ export default {
                 let url = '/searchApi/api/v3/search/song?format=json&keyword=' + keyword;
                 this.axios.get(url).then(res=>{
                     this.searchInfo = res.data.data.info;
-                    if(this.searchInfo == null) {this.showTip = 'aaa';}
+                    if(this.searchInfo == null) {this.showTip = true;}
                 })
             }
         },

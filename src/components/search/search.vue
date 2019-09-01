@@ -21,9 +21,11 @@
                     <li class="time fr">时长</li>
                 </ul>
                 <ul class="listContent">
-                    <li class="tip" :style="showTip ? 'display:none;' : 'diplay:block;'">没有搜索到
-                        <b :style="keyword == '' ? 'display:none;' : 'diplay:block;'">"{{keyword}}"</b>
-                        相关的歌曲</li>
+                    <li class="tip" :style="showTip ? 'display: block;' : 'display: none;'">
+                        没有搜索到
+                        <b :style="keyword == '' ? 'display:none;' : 'display:inline-block;'">"{{keyword}}"</b>
+                        相关的歌曲
+                    </li>
                     <li class="listItem" v-for="(item,index) in searchInfo" :key="index">
                         <a href="javascript:;" class="clearFix">
                             <p class="list_songName fl">{{item.filename}}</p>
@@ -44,7 +46,7 @@ export default {
             searchTab: ['单曲','MV','歌单'],
             keyword: '',
             searchInfo: [],
-            showTip: false
+            showTip: true
         }
     },
     components: {},
@@ -56,8 +58,11 @@ export default {
             if(keyword.trim()){
                 let url = '/searchApi/api/v3/search/song?format=json&keyword=' + keyword;
                 this.axios.get(url).then(res=>{
+                    this.searchInfo = [];
                     this.searchInfo = res.data.data.info;
-                    if(this.searchInfo == null) {this.showTip = true;}
+                    if(this.searchInfo.length !== 0) {this.showTip = false;}
+                    else{this.showTip = true;}
+
                 })
             }
         },
@@ -174,9 +179,15 @@ export default {
                     width: 100%;
                     .tip{
                         height: 54px;
+                        padding-left: 20px;
+                        margin-top: 40px;
                         line-height: 54px;
                         font-size: 16px;
                         color: #333;
+                        text-align: center;
+                        b{
+                            color: #31C27C;
+                        }
                     }
                     .listItem{
                         height: 54px;

@@ -25,6 +25,13 @@ module.exports = {
             pathRewrite:{
                 '^/kugouApi':'/'
             }
+        },
+        "/searchApi":{
+            target:'http://mobilecdn.kugou.com/',
+            changeOrigin:true,
+            pathRewrite:{
+                '^/searchApi':'/'
+            }
         }
 
     },

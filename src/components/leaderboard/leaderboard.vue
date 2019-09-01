@@ -150,7 +150,6 @@ export default {
                     }
                     .listItem:hover{
                         background-color: #f2f2f2;
-
                     }
                     .listItem:hover a .songName{
                         color: #31C27C;

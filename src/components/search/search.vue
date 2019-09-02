@@ -47,7 +47,7 @@ export default {
             searchTab: ['单曲','MV','歌单'],
             keyword: '',
             searchInfo: [],
-            showTip: true
+            showTip: true,
         }
     },
     components: {},
@@ -55,7 +55,13 @@ export default {
         searchSong(){
             let keyword = document.getElementsByClassName('input')[0].value;
             this.keyword = keyword;
-            if(keyword.trim() == ""){alert('1')}
+            if(keyword.trim() == ""){
+                // alert('1')
+                 this.$alert('搜索内容不能为空哦！', '提示', {
+                    confirmButtonText: '确定',
+                });
+
+            }
             if(keyword.trim()){
                 let url = '/searchApi/api/v3/search/song?format=json&keyword=' + keyword + '&page=1&pagesize=20&showtype=1';
                 this.axios.get(url).then(res=>{
@@ -69,6 +75,7 @@ export default {
         },
         keyDown(){
             if(event.keyCode == 13){
+                // this.searchSong();
                 document.getElementsByClassName('searchBtn')[0].click();
             }
         }
@@ -79,12 +86,7 @@ export default {
             let second = time % 60;
             return `${min < 10 ? ('0' + min) : min }:${second > 9 ? second : ('0' + second)}`
         }
-    },
-    // created(){
-    //     this.axios.get('/playApi/yy/index.php?r=play/getdata&hash=1035269c05791f1665e36dffe478326c').then(res=>{
-    //         console.log(res.data);
-    //     })
-    // }
+    }
 }
 </script>
 

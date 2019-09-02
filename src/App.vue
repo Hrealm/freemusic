@@ -55,7 +55,7 @@
 export default {
     name: 'App',
     created(){
-        let d = new Date().getTime();//获取当前的时间戳毫秒数
+        // let d = new Date().getTime();//获取当前的时间戳毫秒数
         //添加cookie--播放酷狗音乐
         // document.cookie = "kg_mid=1923c6069c305133056773d8fce002ce;expires = "+ new Date(d + 7*24*60*60*1000).toUTCString();
         document.cookie = "kg_mid=1923c6069c305133056773d8fce002ce;expires = Session";

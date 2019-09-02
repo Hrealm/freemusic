@@ -140,9 +140,9 @@
             <!-- Ad Column -->
             <!-- <div class="adColumn"></div> -->
             <!-- backtop  -->
-            <el-backtop :right="80" :bottom="80">
+            <!-- <el-backtop :right="80" :bottom="80">
                 <div class="backtop"></div>
-            </el-backtop>
+            </el-backtop> -->
 		</div>
 	</div>
 </template>
@@ -656,17 +656,17 @@ export default {
                 }
             }
         }
-        .backtop{
-            height: 100%;
-            width: 100%;
-            background: url('../../assets/scrollTop1.png') no-repeat center;
-            background-size: 100%;
-            border-radius: 50%;
-        }
-        .backtop:hover{
-            background: url('../../assets/scrollTop2.png') no-repeat center;
-            background-size: 100%;
-        }
+        // .backtop{
+        //     height: 100%;
+        //     width: 100%;
+        //     background: url('../../assets/scrollTop1.png') no-repeat center;
+        //     background-size: 100%;
+        //     border-radius: 50%;
+        // }
+        // .backtop:hover{
+        //     background: url('../../assets/scrollTop2.png') no-repeat center;
+        //     background-size: 100%;
+        // }
 	}
 }
 </style>

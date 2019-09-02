@@ -43,6 +43,9 @@
 			</div>
 		</header>
 		<router-view />
+        <el-backtop :right="80" :bottom="80">
+            <div class="backtop"></div>
+        </el-backtop>
         <footer>
             <div class="ft">
                 <p>Copyright&nbsp;&nbsp;© 2019 FreeMusic-Inc.All Rights Reserved </p>
@@ -116,6 +119,17 @@ header {
 			}
 		}
 	}
+}
+.backtop{
+    height: 100%;
+    width: 100%;
+    background: url('../src/assets/scrollTop1.png') no-repeat center;
+    background-size: 100%;
+    border-radius: 50%;
+}
+.backtop:hover{
+    background: url('../src/assets/scrollTop2.png') no-repeat center;
+    background-size: 100%;
 }
 footer{
     width: 100%;

@@ -27,11 +27,11 @@
                         相关的歌曲
                     </li>
                     <li class="listItem" v-for="(item,index) in searchInfo" :key="index">
-                        <a href="javascript:;" class="clearFix">
+                        <router-link :to="{name: 'playmusic',query:{hash:item.hash,album_id:item.album_id}}" class="clearFix" target="_blank">
                             <p class="list_songName fl">{{item.filename}}</p>
                             <p class="list_album fl">{{item.album_name}}</p>
                             <p class="list_time fr">{{item.duration | songTime}}</p>
-                        </a>
+                        </router-link>
                     </li>
                 </ul>
             </div>
@@ -56,7 +56,7 @@ export default {
             this.keyword = keyword;
             if(keyword.trim() == ""){alert('1')}
             if(keyword.trim()){
-                let url = '/searchApi/api/v3/search/song?format=json&keyword=' + keyword;
+                let url = '/searchApi/api/v3/search/song?format=json&keyword=' + keyword + '&page=1&pagesize=20&showtype=1';
                 this.axios.get(url).then(res=>{
                     this.searchInfo = [];
                     this.searchInfo = res.data.data.info;
@@ -78,6 +78,12 @@ export default {
             let second = time % 60;
             return `${min < 10 ? ('0' + min) : min }:${second > 9 ? second : ('0' + second)}`
         }
+    },
+    created(){
+        this.axios.get('/playApi/yy/index.php?r=play/getdata&hash=1035269c05791f1665e36dffe478326c').then(res=>{
+            console.log(res.data);
+            
+        })
     }
 }
 </script>
@@ -204,7 +210,8 @@ export default {
                                 color: #333;
                             }
                             .list_songName{
-                                width: 600px;
+                                width: 550px;
+                                padding-right: 50px;
                                 text-overflow: ellipsis;
                                 white-space: nowrap;
                                 overflow: hidden;

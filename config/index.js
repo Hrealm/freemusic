@@ -32,8 +32,14 @@ module.exports = {
             pathRewrite:{
                 '^/searchApi':'/'
             }
-        }
-
+        },
+        "/playApi":{
+            target:'http://www.kugou.com/',
+            changeOrigin:true,
+            pathRewrite:{
+                '^/playApi':'/'
+            }
+        },
     },
 
     // Various Dev Server settings

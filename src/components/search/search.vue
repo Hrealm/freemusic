@@ -27,7 +27,8 @@
                         相关的歌曲
                     </li>
                     <li class="listItem" v-for="(item,index) in searchInfo" :key="index">
-                        <router-link :to="{name: 'playmusic',query:{hash:item.hash,album_id:item.album_id}}" class="clearFix" target="_blank">
+                        <router-link :to="{name: 'playmusic',query:{hash:item.hash,album_id:item.album_id}}"
+                        class="clearFix" target="_blank">
                             <p class="list_songName fl">{{item.filename}}</p>
                             <p class="list_album fl">{{item.album_name}}</p>
                             <p class="list_time fr">{{item.duration | songTime}}</p>
@@ -79,12 +80,11 @@ export default {
             return `${min < 10 ? ('0' + min) : min }:${second > 9 ? second : ('0' + second)}`
         }
     },
-    created(){
-        this.axios.get('/playApi/yy/index.php?r=play/getdata&hash=1035269c05791f1665e36dffe478326c').then(res=>{
-            console.log(res.data);
-            
-        })
-    }
+    // created(){
+    //     this.axios.get('/playApi/yy/index.php?r=play/getdata&hash=1035269c05791f1665e36dffe478326c').then(res=>{
+    //         console.log(res.data);
+    //     })
+    // }
 }
 </script>
 

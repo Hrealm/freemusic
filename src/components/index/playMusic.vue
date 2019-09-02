@@ -77,12 +77,19 @@ export default {
             })
         };
         if(hash){
-            let album_id = this.$route.query.album_id;
-            let url = '/playApi/yy/index.php?r=play/getdata&hash='+ hash +'&album_id=' + album_id;
+            let url = '/playApi/yy/index.php?r=play/getdata&hash='+ hash;
             this.axios.get(url).then(res=>{
-                console.log(url);
-                console.log(res.data);
-                
+                this.musicObj = res.data.data;
+                this.songList = {
+                    title: this.musicObj.song_name,
+                    artist: this.musicObj.author_name,
+                    src: this.musicObj.play_url,
+                    pic: this.musicObj.img,
+                    lrc: this.musicObj.lyrics
+                };
+                this.player = true;
+                // console.log(res.data);
+                // console.log(this.musicObj);
             })
         }
         //  else{

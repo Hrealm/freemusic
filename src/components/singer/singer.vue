@@ -15,10 +15,10 @@
                     <ul :style="singerList.classid === singerListId ? 'display: block;' : 'display: none;'">
                         <li class="singerListItem fl" v-for="(item,index) in listArry" :key="index">
                             <div class="singerListBox">
-                                <a href="javascript:;" class="imgUrl">
+                                <a href="javascript:;" class="imgUrl" :title="item.singername">
                                     <img :src="item.imgurl" alt="" width="100%" height="100%" v-lazy="item.imgurl">
                                 </a>
-                                <h3 class="singerName"><a href="javascript:;">{{item.singername}}</a></h3>
+                                <h3 class="singerName"><a href="javascript:;" :title="item.singername">{{item.singername}}</a></h3>
                             </div>
                         </li>
                     </ul>

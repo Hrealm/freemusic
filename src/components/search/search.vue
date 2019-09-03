@@ -141,7 +141,6 @@ export default {
                     color: #7f7f7f;
                     i{
                         font-size: 22px;
-                        
                     }
                 }
                 .searchBtn:hover{

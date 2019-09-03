@@ -21,10 +21,12 @@
 					<div class="itemContent clearFix">
 						<div class="itemList" v-for="(item,index) in songList" :key="index">
                             <router-link :to="{name: 'playmusic',query:{title:'songList',id:item.id}}">
-                                <p class="PlayNum"><span>{{item.PlayNum}}万</span></p>
+                                <p class="PlayNum"><i class="iconfont icon-erji"></i><span>{{item.PlayNum}}万</span></p>
                                 <img :src="item.picUrl" alt width="100%" height="100%" v-lazy="item.picUrl"/>
                                 <p class="des">{{item.des}}</p>
-                                <div class="cover" style="visibility: hidden;"></div>
+                                <div class="cover">
+                                    <i class="iconfont icon-bofang"></i>
+                                </div>
                             </router-link>
 						</div>
 					</div>
@@ -33,13 +35,12 @@
 				<div class="hotList">
 					<div class="itemTitle clearFix">
 						<h3>热门<b>榜单</b></h3>
-						<a href="javascript:;">更多</a>
+						<a href="#/leaderboard">更多</a>
 					</div>
 					<div class="itemContent">
                         <div class="itemList clearFix" v-for="(item,index) in hotList" :key="index">
-                            <a href="javascript:;">
-                                <div class="cover" style="visibility: hidden;"></div>
-                                <span class="right" style="visibility: hidden;"></span>
+                            <a href="#/leaderboard">
+                                <div class="cover"><i class="iconfont icon-bofang"></i></div>
                                 <img :src="item.picUrl" alt=""  width="100%" height="100%" v-lazy="item.picUrl">
                                 <div class="list fr">
                                     <dl>
@@ -73,6 +74,7 @@
                             :style="index === songListShow ? 'display:block;' : 'display:none;'">
                                 <li v-for="(item,index) in item" :key="index">
                                     <router-link class="clearFix" :to="{name:'playmusic',query:{title:'SongtabContent',area:songListShow,index:(item.id-1)}}">
+                                        <p class="cover"><i class="iconfont icon-bofang2"></i><i class="iconfont icon-xiazai"></i></p>
                                         <span class="songName fl">{{item.name}}</span>
                                         <span class="songTime fr">{{item.time}}</span>
                                     </router-link>
@@ -90,7 +92,7 @@
                     <div class="itemContent clearFix">
                         <div class="mvList fl" v-for="(item,index) in hotMV" :key="index">
                             <a :href="item.url">
-                                <div class="cover" style="visibility: hidden;"></div>
+                                <div class="cover"><i class="iconfont icon-bofang"></i></div>
                                 <img :src="item.picUrl" alt="" width="100%" height="100%" v-lazy="item.picUrl">
                                 <p class="mvName">{{item.mvName}}</p>
                             </a>
@@ -112,7 +114,7 @@
                         <ul>
                             <li class="fl" v-for="(item,index) in hotRadio" :key="index">
                                 <a href="javascript:;">
-                                    <div class="cover" style="visibility: hidden;"></div>
+                                    <div class="cover"><i class="iconfont icon-bofang"></i></div>
                                     <img :src="item.picUrl" alt="" width="100%" height="100%" v-lazy="item.picUrl">
                                     <p class="radioName">{{item.name}}</p>
                                 </a>
@@ -124,12 +126,12 @@
                 <div class="hotSinger fr">
                     <div class="itemTitle clearFix">
                         <h3>热门<b>歌手</b></h3>
-                        <a href="javascript:;">更多</a>
+                        <a href="#/singer">更多</a>
                     </div>
                     <div class="itemContent">
                         <div class="singerList" v-for="(item,index) in hotSinger" :key="index">
-                            <a href="javascript:;">
-                                <div class="cover" style="visibility: hidden;"></div>
+                            <a href="#/singer">
+                                <div class="cover"></div>
                                 <img :src="item.picUrl" alt="" width="100%" height="100%" v-lazy="item.picUrl">
                                 <p class="singerName">{{item.name}}</p>
                             </a>
@@ -277,7 +279,11 @@ export default {
 							);
 							color: #fff;
 							text-align: right;
-							z-index: 2;
+                            z-index: 2;
+                            i{
+                                margin: 0 8px;
+                                font-size: 14px;
+                            }
 						}
 						.des {
 							position: absolute;
@@ -295,7 +301,22 @@ export default {
 							text-overflow: ellipsis;
 							white-space: nowrap;
 							overflow: hidden;
-						}
+                        }
+                        .cover{
+                            visibility: hidden;
+                            position: absolute;
+                            top: 0;
+                            width: 160px;
+                            height: 160px;
+                            background-color: rgba(0, 0, 0,.3);
+                            i{
+                                position: absolute;
+                                bottom: 2px;
+                                right: 5px;
+                                font-size: 20px;
+                                color: rgba(255,255,255,1);
+                            }
+                        }
 					}
 					.itemList:nth-child(1) {
 						width: 325px;
@@ -304,8 +325,16 @@ export default {
 						.des {
 							width: 295px;
 							height: 20px;
-						}
-					}
+                        }
+                        .cover{
+                            width: 325px;
+                            height: 325px;
+                            background-color: rgba(0, 0, 0,.3);
+                        }
+                    }
+                    .itemList:hover .cover{
+                        visibility: visible;
+                    }
 				}
 			}
 			.hotList {
@@ -339,12 +368,26 @@ export default {
                     width: 320px;
                     height: 325px;
                     .itemList{
+                        position: relative;
                         width: 320px;
                         height: 98px;
                         margin-bottom: 15px;
                         background-color: #f6f6f6;
                         a{
                             display: block;
+                            .cover{
+                                visibility: hidden;
+                                position: absolute;
+                                width: 98px;
+                                height: 98px;
+                                background-color: rgba(0, 0, 0,.3);
+                                line-height: 98px;
+                                text-align: center;
+                                i{
+                                    font-size: 32px;
+                                    color: white;
+                                }
+                            }
                             img{
                                 width: 98px;
                                 height: 98px;
@@ -373,6 +416,9 @@ export default {
                                 }
                             }
                         }
+                    }
+                    .itemList:hover .cover{
+                        visibility: visible;
                     }
                 }
             }
@@ -429,6 +475,7 @@ export default {
                         margin-top: 0px;
                         ul{
                             li{
+                                position: relative;
                                 height: 35px;
                                 line-height: 35px;
                                 font-size: 14px;
@@ -436,7 +483,29 @@ export default {
                                     display: block;
                                     padding: 0 10px;
                                     color: #333;
+                                    .cover{
+                                        visibility: hidden;
+                                        position: absolute;
+                                        top: 0;
+                                        left: 0;
+                                        height: 35px;
+                                        width: 760px;
+                                        padding-right: 60px;
+                                        background-color: rgba(49, 194, 124,.2);
+                                        text-align: end;
+                                        i{
+                                            font-size: 18px;
+                                            color: rgba(127,127,127,.8);
+                                            margin: 0 2px;
+                                        }
+                                    }
                                 }
+                            }
+                            li:hover .cover{
+                                visibility: visible;
+                            }
+                            li:hover a{
+                                color: #31c27c;
                             }
                         }
                     }
@@ -473,11 +542,26 @@ export default {
                 .itemContent{
                     width: 332px;
                     .mvList{
+                        position: relative;
                         width: 154px;
                         margin-right: 12px;
                         a{
                             display: block;
                             font-size: 0;
+                            .cover{
+                                position: absolute;
+                                top: 0;
+                                visibility: hidden;
+                                width: 154px;
+                                height: 84px;
+                                background-color: rgba(0, 0, 0,.3);
+                                line-height: 84px;
+                                text-align: center;
+                                i{
+                                    font-size: 52px;
+                                    color: white;
+                                }
+                            }
                             img{
                                 width: 154px;
                                 height: 84px;
@@ -500,6 +584,11 @@ export default {
                         height: 175px;
                         margin-bottom: 8px;
                         a{
+                            .cover{
+                                width: 320px;
+                                height: 175px;
+                                line-height: 175px;
+                            }
                             img{
                                 width: 320px;
                                 height: 175px;
@@ -517,6 +606,12 @@ export default {
                                 color: #fff;
                             }
                         }
+                    }
+                    .mvList:hover .cover{
+                        visibility: visible;
+                    }
+                    .mvList:hover .mvName{
+                        color: #31c27c;
                     }
                 }
             }
@@ -553,6 +648,7 @@ export default {
                     ul {
                         width: 864px;
                         li{
+                            position: relative;
                             width: 100px;
                             margin-right: 44px;
                             margin-bottom: 23px;
@@ -560,6 +656,20 @@ export default {
                             a{
                                 display: block;
                                 font-size: 0;
+                                .cover{
+                                    position: absolute;
+                                    visibility: hidden;
+                                    width: 100px;
+                                    height: 100px;
+                                    border-radius: 50%;
+                                    line-height: 100px;
+                                    text-align: 100px;
+                                    background-color: rgba(0, 0, 0,.3);
+                                    i{
+                                        font-size: 32px;
+                                        color: rgba(255,255,255,.8);
+                                    }
+                                }
                                 img{
                                     width: 100px;
                                     height: 100px;
@@ -576,6 +686,12 @@ export default {
                                     color: #333;
                                 }
                             }
+                        }
+                        li:hover .cover{
+                            visibility: visible;
+                        }
+                        li:hover .radioName{
+                            color: #31c27c;
                         }
                     }
                 }
@@ -618,6 +734,13 @@ export default {
                         a{
                             display: block;
                             font-size: 0;
+                            .cover{
+                                position: absolute;
+                                visibility: hidden;
+                                width: 105px;
+                                height: 105px;
+                                background-color: rgba(0, 0, 0,.3);
+                            }
                             img{
                                 width: 105px;
                                 height: 105px;
@@ -644,6 +767,10 @@ export default {
                         height: 160px;
                         margin-bottom: 5px;
                         a{
+                            .cover{
+                                width: 160px;
+                                height: 160px;
+                            }
                             img{
                                 width: 160px;
                                 height: 160px;
@@ -652,6 +779,9 @@ export default {
                                 width: 150px;
                             }
                         }
+                    }
+                    .singerList:hover .cover{
+                        visibility: visible;
                     }
                 }
             }

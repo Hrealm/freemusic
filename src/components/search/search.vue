@@ -2,8 +2,8 @@
     <div class="wrap">
         <div class="searchHd">
             <div class="searchInput">
-                <input class="input" type="text" placeholder="搜索音乐、MV、歌单" @keydown="keyDown()">
-                <button class="searchBtn" @click="searchSong()"></button>
+                <input class="input" type="text" placeholder="搜索音乐、MV、歌单、专辑" @keydown="keyDown()">
+                <button class="searchBtn" @click="searchSong()"><i class="iconfont icon-sousuo"></i></button>
             </div>
         </div>
         <div class="searchContent">
@@ -59,6 +59,7 @@ export default {
                 // alert('1')
                  this.$alert('搜索内容不能为空哦！', '提示', {
                     confirmButtonText: '确定',
+                    callback: function () {}
                 });
 
             }
@@ -75,8 +76,8 @@ export default {
         },
         keyDown(){
             if(event.keyCode == 13){
-                // this.searchSong();
-                document.getElementsByClassName('searchBtn')[0].click();
+                this.searchSong();
+                // document.getElementsByClassName('searchBtn')[0].click();
             }
         }
     },
@@ -137,10 +138,18 @@ export default {
                     border-top-right-radius: 3px;
                     border-bottom-right-radius: 3px;
                     cursor: pointer;
+                    color: #7f7f7f;
+                    i{
+                        font-size: 22px;
+                        
+                    }
                 }
-                // .searchBtn:focus{
-                //     outline: 0;
-                // }
+                .searchBtn:hover{
+                    color: #31C27C;
+                }
+                .searchBtn:focus{
+                    outline: 0;
+                }
             }
         }
         .searchContent{

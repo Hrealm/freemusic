@@ -4,8 +4,9 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 
-//导入全局样式
+//导入全局样式、阿里图标
 import '../static/css/global.css'
+import '../static/font/iconfont'
 
 Vue.config.productionTip = false
 

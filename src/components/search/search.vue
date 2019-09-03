@@ -29,7 +29,9 @@
                     <li class="listItem" v-for="(item,index) in searchInfo" :key="index">
                         <router-link :to="{name: 'playmusic',query:{hash:item.hash,album_id:item.album_id}}"
                         class="clearFix" target="_blank">
-                            <p class="list_songName fl">{{item.filename}}</p>
+                            <p class="list_songName fl">{{item.filename}}
+                                <a href="javascript:;" class="cover"><i class="iconfont icon-mv"></i></a>
+                            </p>
                             <p class="list_album fl">{{item.album_name}}</p>
                             <p class="list_time fr">{{item.duration | songTime}}</p>
                         </router-link>
@@ -206,6 +208,7 @@ export default {
                         }
                     }
                     .listItem{
+                        position: relative;
                         height: 54px;
                         line-height: 54px;
                         padding-left: 20px;
@@ -221,10 +224,21 @@ export default {
                             }
                             .list_songName{
                                 width: 550px;
+                                height: 53.6px;
                                 padding-right: 50px;
                                 text-overflow: ellipsis;
                                 white-space: nowrap;
                                 overflow: hidden;
+                                .cover{
+                                    visibility: hidden;
+                                    display: inline;
+                                    margin-left: 10px;
+                                    vertical-align: middle;
+                                    i{
+                                        font-size: 26px;
+                                        // color: #31C27C;
+                                    }
+                                }
                             }
                             .list_album{
                                 width: 470px;
@@ -244,6 +258,9 @@ export default {
                     .listItem:hover .list_songName{
                         color: #31C27C;
                     }
+                     .listItem:hover .list_songName .cover{
+                        visibility: visible;
+                     }
                     .listItem:hover .list_album{
                         color: #999;
                     }

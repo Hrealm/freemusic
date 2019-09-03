@@ -15,7 +15,7 @@
                     <ul>
                         <li class="fl" v-for="(item,index) in hotRadio" :key="index">
                             <a href="javascript:;">
-                                <div class="cover" style="visibility: hidden;"></div>
+                                <div class="cover"><i class="iconfont icon-bofang"></i></div>
                                 <img :src="item.picUrl" alt="" width="100%" height="100%" v-lazy="item.picUrl">
                                 <p class="radioName">{{item.name}}</p>
                             </a>
@@ -30,7 +30,7 @@
                 </div>
                 <div class="itemContent">
                     <a href="javascript:;">
-                        <div class="cover" style="visibility: hidden;"></div>
+                        <div class="cover"><i class="iconfont icon-bofang"></i></div>
                         <img src="../../../static/img/hotMV/5.jpg" alt="" width="100%" height="100%">
                         <p class="mvName">Live Piano Session II</p>
                     </a>
@@ -142,11 +142,25 @@ export default {
                     ul {
                         width: 864px;
                         li{
+                            position: relative;
                             width: 100px;
                             margin-right: 44px;
                             margin-bottom: 23px;
                             text-align: center;
                             a{
+                                .cover{
+                                    position: absolute;
+                                    visibility: hidden;
+                                    width: 100px;
+                                    height: 100px;
+                                    line-height: 100px;
+                                    text-align: 100px;
+                                    background-color: rgba(0, 0, 0,.3);
+                                    i{
+                                        font-size: 32px;
+                                        color: rgba(255,255,255,.8);
+                                    }
+                                }
                                 display: block;
                                 font-size: 0;
                                 img{
@@ -164,6 +178,12 @@ export default {
                                     color: #333;
                                 }
                             }
+                        }
+                        li:hover .cover{
+                            visibility: visible;
+                        }
+                        li:hover .radioName{
+                            color: #31c27c;
                         }
                     }
                 }
@@ -200,6 +220,19 @@ export default {
                     width: 320px;
                     a{
                         display: block;
+                        .cover{
+                            position: absolute;
+                            visibility: hidden;
+                            width: 320px;
+                            height: 180px;
+                            text-align: center;
+                            line-height: 180px;
+                            background-color: rgba(0, 0, 0,.2);
+                            i{
+                                font-size: 52px;
+                                color: rgba(255,255,255,.8);
+                            }
+                        }
                         img{
                             width: 320px;
                             height: 180px;
@@ -210,10 +243,13 @@ export default {
                             color: #2c3e50;
                             text-align: start;
                         }
-                        .mvName:hover{
-                            color: #31c27c;
-                        }
                     }
+                }
+                .itemContent:hover .cover{
+                    visibility: visible;
+                }
+                .itemContent:hover .mvName{
+                    color: #31c27c;
                 }
             }
         }

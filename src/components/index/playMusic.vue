@@ -106,7 +106,7 @@ export default {
 <style scoped lang="scss">
     .wrap{
         width: 100%;
-        min-height: 75vh;
+        min-height: 80vh;
         .playMusic{
             width: 1200px;
             margin: 0 auto;

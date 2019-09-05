@@ -30,7 +30,7 @@
                         <router-link :to="{name: 'playmusic',query:{hash:item.hash,album_id:item.album_id}}"
                         class="clearFix" target="_blank">
                             <p class="list_songName fl">{{item.filename}}
-                                <a href="javascript:;" class="cover"><i class="iconfont icon-mv"></i></a>
+                                <router-link target="_blank" :to="{name: 'mv',query:{mvhash:item.mvhash}}" class="cover"><i class="iconfont icon-mv"></i></router-link>
                             </p>
                             <p class="list_album fl">{{item.album_name}}</p>
                             <p class="list_time fr">{{item.duration | songTime}}</p>

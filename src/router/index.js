@@ -9,6 +9,12 @@ import Search from '../components/search/search'
 import PlayMusic from '../components/index/playMusic'
 import Aplayer from 'vue-aplayer'
 
+//安装全局组件 vue-video-player
+import VideoPlayer from 'vue-video-player'
+import 'video.js/dist/video-js.css';
+import 'vue-video-player/src/custom-theme.css';
+Vue.use(VideoPlayer);
+
 //安装全局组件 vue-aplayer
 Vue.component('aplayer',Aplayer);
 
@@ -53,7 +59,7 @@ export default new Router({
             component: Radio
         },
         {
-            path: '/mv',
+            path: '/playmv.html',
             name: 'mv',
             component: Mv
         },

@@ -22,8 +22,8 @@
 							<router-link :to="{name:'radio'}">
 								<span>电台</span>
 							</router-link>
-						</li>
-						<li>
+						</li> -->
+						<!-- <li>
 							<router-link :to="{name:'mv'}">
 								<span>MV</span>
 							</router-link>

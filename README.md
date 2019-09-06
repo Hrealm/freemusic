@@ -1,10 +1,18 @@
-# freemusic
+# FreeMusic
 
-> A Vue.js project
+> A simple, beautiful music website
+
+
 
 ## Build Setup
 
 ``` bash
+# clone project
+git clone git@github.com:Hrealm/freemusic.git
+
+# enter project folder
+cd freemusic
+
 # install dependencies
 npm install
 
@@ -14,8 +22,15 @@ npm run dev
 # build for production with minification
 npm run build
 
-# build for production and view the bundle analyzer report
-npm run build --report
 ```
 
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+##  Start Local Server
+
+```bash
+# start node server at localhost:8899
+node ./src/node/node.js
+```
+
+## 声明
+
+本项目仅供学习与练习，不用于商业，如有侵权联系删除！

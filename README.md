@@ -4,6 +4,12 @@
 
 
 
+## Partial Screenshot
+
+<img src="static/img/screenshot/1.jpg" width="100%" height="100%"/>
+
+<img src="static/img/screenshot/2.jpg" width="100%" height="100%"/>
+
 ## Build Setup
 
 ``` bash
@@ -33,4 +39,8 @@ node ./src/node/node.js
 
 ## 声明
 
-本项目仅供学习与练习，不用于商业，如有侵权联系删除！
+本项目仅供学习与交流，不用于商业，数据均来源网络，如有侵权联系删除！
+
+## License
+
+[MIT](https://github.com/Hrealm/freemusic/blob/master/LICENSE)

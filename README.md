@@ -2,7 +2,12 @@
 
 > A simple, beautiful music website
 
-
+- [x] 歌曲、歌手、专辑、MV搜索
+- [x] 歌曲播放 + 歌词
+- [x] MV播放
+- [ ] 登录、注册
+- [ ] 评论
+- [ ] 添加歌曲列表
 
 ## Partial Screenshot
 

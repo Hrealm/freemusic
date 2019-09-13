@@ -92,19 +92,19 @@ server.on('request',(req,res)=>{
                 id: 1,
                 mvName: 'Burn',
                 picUrl: '../static/img/hotMV/1.jpg',
-                url: 'https://music.163.com/#/mv?id=148005'
+                url: '/#/playmv.html?mvhash=6eaf04985f9e2a62b2a7eef6e8c8a36d'
             },
             {
                 id: 2,
                 mvName: '爱完不完',
                 picUrl: '../static/img/hotMV/2.jpg',
-                url: 'https://www.kugou.com/mvweb/html/mv_1457468.html'
+                url: '/#/playmv.html?mvhash=bbbb3b2aed47b46be40152d70c03bf2f'
             },
             {
                 id: 3,
                 mvName: '小欢喜',
                 picUrl: '../static/img/hotMV/3.jpg',
-                url: 'https://www.kugou.com/mvweb/html/mv_1460605.html'
+                url: '/#/playmv.html?mvhash=bfd7db0af03dc6f6ebc979672dba7bb9'
             }
         ],
         hotRadio: [

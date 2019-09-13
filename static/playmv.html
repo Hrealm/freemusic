@@ -12,6 +12,9 @@
             width: 1200px;
             height: 674px;
         }
+        video:focus{
+            outline: none;
+        }
     </style>
 </head>
 <body>
@@ -26,7 +29,7 @@
         var url = document.URL;
         var arrUrl = url.split("=");
         video.setAttribute('src',arrUrl[1]);
-        console.log(arrUrl[1]);
+        // console.log(arrUrl[1]);
         
 
     </script>

@@ -24,12 +24,19 @@ export default {
     components: {},
     created(){
         let mvhash = this.$route.query.mvhash;
-        let url = '/kugouApi/app/i/mv.php?cmd=100&hash=' + mvhash + '&ismp3=1&ext=mp4';
-        this.axios.get(url).then(res=>{
-            this.mvInfo = res.data;
-            this.src = `../static/playmv.html?url=${this.mvInfo.mvdata.sq.downurl || this.mvInfo.mvdata.le.downurl}`;
-            // console.log(this.mvInfo.mvdata.le.downurl);
-        })
+        if(mvhash){
+            let url = '/kugouApi/app/i/mv.php?cmd=100&hash=' + mvhash + '&ismp3=1&ext=mp4';
+            this.axios.get(url).then(res=>{
+                this.mvInfo = res.data;
+                this.src = `../static/playmv.html?url=${this.mvInfo.mvdata.sq.downurl || this.mvInfo.mvdata.le.downurl}`;
+                // console.log(this.mvInfo.mvdata.le.downurl);
+            })
+        }else{
+            this.$alert('该歌曲暂无 MV！', '提示', {
+                confirmButtonText: '确定',
+                callback: function () {}
+            });
+        }
     }
 }
 </script>

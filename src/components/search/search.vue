@@ -59,7 +59,7 @@ export default {
             this.keyword = keyword;
             if(keyword.trim() == ""){
                 // alert('1')
-                 this.$alert('搜索内容不能为空哦！', '提示', {
+                this.$alert('搜索内容不能为空哦！', '提示', {
                     confirmButtonText: '确定',
                     callback: function () {}
                 });

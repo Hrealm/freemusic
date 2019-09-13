@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- 删除 http head 中的 referer -->
+    <meta name="referrer" content="never">
     <title>Document</title>
     <style type="text/css">
         video{
@@ -15,17 +17,18 @@
 <body>
     <div id="app">
         <video controls autoplay name="media">
-            <source id="source" src="http://fs.mv.web.kugou.com/201909052228/9e1b00bfb950aac67710b3caae6b8763/G089/M05/03/08/-YYBAFtrZYGAeyCJAPSJYfIUeLU109.mp4"  type="video/mp4">
+            <source id="source" src=""  type="video/mp4">
         </video>
     </div>
 
     <script>
-        var url = document.getElementById('source');
-        window.addEventListener('message',function(ev){
-            // url.innerHTML = ev.data.params;
-            // url.setAttribute('src',ev.data.params);
-            // console.log(ev.data.params);
-        })
+        var video = document.getElementById('source');
+        var url = document.URL;
+        var arrUrl = url.split("=");
+        video.setAttribute('src',arrUrl[1]);
+        console.log(arrUrl[1]);
+        
+
     </script>
 </body>
 </html>

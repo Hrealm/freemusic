@@ -1,7 +1,7 @@
 <template>
 	<div class="section_inner">
 		<div class="videoPlayer">
-            <iframe ref="iframe" src="../static/playmv.html" frameborder="no" border="0" 
+            <iframe ref="iframe" :src="src" frameborder="no" border="0" 
             marginwidth="0" marginheight="0" scrolling="no" allowtransparency="yes"></iframe>
         </div>
         
@@ -16,6 +16,7 @@
 export default {
 	data() {
 		return {
+            src: '',
             mvInfo: {},
             iframeWin: {}
 		}
@@ -26,22 +27,9 @@ export default {
         let url = '/kugouApi/app/i/mv.php?cmd=100&hash=' + mvhash + '&ismp3=1&ext=mp4';
         this.axios.get(url).then(res=>{
             this.mvInfo = res.data;
+            this.src = `../static/playmv.html?url=${this.mvInfo.mvdata.sq.downurl || this.mvInfo.mvdata.le.downurl}`;
             // console.log(this.mvInfo.mvdata.le.downurl);
         })
-    },
-    mounted(){
-        // 在外部vue的window上添加postMessage的监听，并且绑定处理函数handleMessage
-        // window.addEventListener('message', this.handleMessage)
-        this.iframeWin = this.$refs.iframe.contentWindow;
-        this.sendMessage();
-    },
-    methods: {
-        sendMessage(){
-            this.iframeWin.postMessage({
-                // cmd: 'getFormJson',
-                params: this.mvInfo.mvdata.le.downurl
-            },'*')
-        }
     }
 }
 </script>

@@ -29,7 +29,7 @@
                     <h3>相关<b>MV</b></h3>
                 </div>
                 <div class="itemContent">
-                    <a href="javascript:;">
+                    <a href="/#/playmv.html?mvhash=e54624e1c736dc406090b311491e11bb">
                         <div class="cover"><i class="iconfont icon-bofang"></i></div>
                         <img src="../../../static/img/hotMV/5.jpg" alt="" width="100%" height="100%">
                         <p class="mvName">Live Piano Session II</p>

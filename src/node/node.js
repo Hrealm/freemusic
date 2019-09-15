@@ -216,41 +216,46 @@ server.on('request',(req,res)=>{
         songlistContent: songlistContent
     }
 
-    switch (pathName){
-        case '/banner':
-            reJson('banner');
-            break;
-        case '/songList':
-            reJson('songList');
-            break;
-        case '/hotList':
-            reJson('hotList');
-            break;
-        case '/tabMenu':
-            reJson('tabMenu');
-            break;
-        case '/SongtabContent':
-            reJson('SongtabContent');
-            break;
-        case '/hotMV':
-            reJson('hotMV');
-            break;
-        case '/hotRadio':
-            reJson('hotRadio');
-            break;
-        case '/hotSinger':
-            reJson('hotSinger');
-            break;
-        case '/navList':
-            reJson('navList');
-            break;
-        case '/songlistContent':
-            reJson('songlistContent');
-            break;
-        default:
-            break;
-
+    if(pathName != '/favicon.ico'){
+        const _pathName = pathName.substring(1,pathName.length);
+        // console.log(_pathName);
+        reJson(_pathName);
     }
+    
+    // switch (pathName){
+    //     case '/banner':
+    //         reJson('banner');
+    //         break;
+    //     case '/songList':
+    //         reJson('songList');
+    //         break;
+    //     case '/hotList':
+    //         reJson('hotList');
+    //         break;
+    //     case '/tabMenu':
+    //         reJson('tabMenu');
+    //         break;
+    //     case '/SongtabContent':
+    //         reJson('SongtabContent');
+    //         break;
+    //     case '/hotMV':
+    //         reJson('hotMV');
+    //         break;
+    //     case '/hotRadio':
+    //         reJson('hotRadio');
+    //         break;
+    //     case '/hotSinger':
+    //         reJson('hotSinger');
+    //         break;
+    //     case '/navList':
+    //         reJson('navList');
+    //         break;
+    //     case '/songlistContent':
+    //         reJson('songlistContent');
+    //         break;
+    //     default:
+    //         break;
+    // }
 
     function reJson(route) {
         if(parseObj.query.id){

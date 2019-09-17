@@ -161,34 +161,46 @@ export default {
             SongtabContent: {},
             hotMV: [],
             hotRadio: [],
-            hotSinger: []
+            hotSinger: [],
+            indexInfo: {}
 		}
 	},
 	components: {},
 	created() {
-		this.axios.get('/api/banner').then(res => {
-			this.banner = res.data
-		})
-		this.axios.get('/api/songList').then(res => {
-			this.songList = res.data
-        })
-        this.axios.get('/api/hotList').then((res)=>{
-            this.hotList = res.data
-        })
-        this.axios.get('/api/tabMenu').then((res)=>{
-            this.tabMenu = res.data
-        })
-        this.axios.get('/api/SongtabContent').then((res)=>{
-            this.SongtabContent = res.data
-        })
-        this.axios.get('/api/hotMV').then((res)=>{
-            this.hotMV = res.data
-        })
-        this.axios.get('/api/hotRadio').then((res)=>{
-            this.hotRadio = res.data
-        })
-        this.axios.get('/api/hotSinger').then((res)=>{
-            this.hotSinger = res.data
+		// this.axios.get('/api/banner').then(res => {
+		// 	this.banner = res.data
+		// })
+		// this.axios.get('/api/songList').then(res => {
+		// 	this.songList = res.data
+        // })
+        // this.axios.get('/api/hotList').then((res)=>{
+        //     this.hotList = res.data
+        // })
+        // this.axios.get('/api/tabMenu').then((res)=>{
+        //     this.tabMenu = res.data
+        // })
+        // this.axios.get('/api/SongtabContent').then((res)=>{
+        //     this.SongtabContent = res.data
+        // })
+        // this.axios.get('/api/hotMV').then((res)=>{
+        //     this.hotMV = res.data
+        // })
+        // this.axios.get('/api/hotRadio').then((res)=>{
+        //     this.hotRadio = res.data
+        // })
+        // this.axios.get('/api/hotSinger').then((res)=>{
+        //     this.hotSinger = res.data
+        // })
+        this.axios.get('/api/indexList').then(res => {
+            this.indexInfo = res.data;
+            this.banner = this.indexInfo.banner;
+            this.songList = this.indexInfo.songList;
+            this.hotList = this.indexInfo.hotList;
+            this.tabMenu = this.indexInfo.tabMenu;
+            this.SongtabContent = this.indexInfo.SongtabContent;
+            this.hotMV = this.indexInfo.hotMV;
+            this.hotRadio = this.indexInfo.hotRadio;
+            this.hotSinger = this.indexInfo.hotSinger;
         })
     },
     methods: {

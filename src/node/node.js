@@ -259,13 +259,18 @@ server.on('request',(req,res)=>{
     // }
 
     function reJson(route) {
-        if(parseObj.query.id){
-            let id = parseObj.query.id;
-            //根据Id取出数组中指定的对象
-            let result = data[route].find((item)=>{
-                return item.id == id;
-            })
-            res.end(JSON.stringify(result));
+        if(parseObj.query.title){
+            const title = parseObj.query.title;
+            if(parseObj.query.id){
+                let id = parseObj.query.id;
+                //根据Id取出数组中指定的对象
+                let result = data[route][title].find((item)=>{
+                    return item.id == id;
+                })
+                res.end(JSON.stringify(result));
+            }else{
+                res.end(JSON.stringify(data[route][title]));
+            }
         }else{
             res.end(JSON.stringify(data[route]));
         }

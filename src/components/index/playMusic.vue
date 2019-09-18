@@ -59,7 +59,7 @@ export default {
         const title = this.$route.query.title;
         let hash = this.$route.query.hash;
         if(id){
-            let url ='/api/' + title + '?id=' + id;
+            let url ='/api/indexList?title=' + title + '&id=' + id;
             this.axios.get(url).then((res)=>{
                 this.musicObj = res.data
                 this.list = this.musicObj.musicList;
@@ -70,13 +70,14 @@ export default {
         if(title=='SongtabContent'){
             let index = this.$route.query.index;
             let area = this.$route.query.area;
-            this.axios.get('/api/' + title).then((res)=>{
+            this.axios.get('/api/indexList?title=' + title).then((res)=>{
                 this.musicObj = res.data;
                 this.songList = this.musicObj[area][index].musicInfo;
                 this.player = true;
             })
         };
         if(hash){
+            // console.log(hash);
             let url = '/playApi/yy/index.php?r=play/getdata&hash='+ hash;
             this.axios.get(url).then(res=>{
                 this.musicObj = res.data.data;
@@ -92,10 +93,10 @@ export default {
                 // console.log(this.musicObj);
             })
         }
-        //  else{
+        // else{
         //     alert('该音乐暂时无法播放！！')
         // }
-        this.axios.get('/api/hotRadio').then((res)=>{
+        this.axios.get('/api/indexList?title=hotRadio').then((res)=>{
             this.hotRadio = res.data
         });
     }

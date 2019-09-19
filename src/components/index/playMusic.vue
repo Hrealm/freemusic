@@ -50,6 +50,7 @@ export default {
             list: [],
             musicObj: {},
             player: false,
+            canPlay: true,
             hotRadio: []
         }
     },
@@ -77,10 +78,10 @@ export default {
             })
         };
         if(hash){
-            // console.log(hash);
             let url = '/playApi/yy/index.php?r=play/getdata&hash='+ hash;
             this.axios.get(url).then(res=>{
                 this.musicObj = res.data.data;
+                if(!this.musicObj.song_name){this.canPlay = false};
                 this.songList = {
                     title: this.musicObj.song_name,
                     artist: this.musicObj.author_name,
@@ -89,16 +90,21 @@ export default {
                     lrc: this.musicObj.lyrics
                 };
                 this.player = true;
-                // console.log(res.data);
-                // console.log(this.musicObj);
             })
         }
-        // else{
-        //     alert('该音乐暂时无法播放！！')
-        // }
         this.axios.get('/api/indexList?title=hotRadio').then((res)=>{
             this.hotRadio = res.data
         });
+    },
+    mounted(){
+        setTimeout(()=>{
+            if(!this.canPlay){
+                this.$alert('我太难了~没抢到资源 o(︶︿︶)o','sorry',{
+                    confirmButtonText: '确定',
+                    callback: function(){}
+                });
+            }
+        },200)
     }
     
 }

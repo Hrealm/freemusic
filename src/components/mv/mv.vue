@@ -34,7 +34,9 @@ export default {
         }else{
             this.$alert('该歌曲暂无 MV！', '提示', {
                 confirmButtonText: '确定',
-                callback: function () {}
+                callback: function () {
+                    window.top.close();
+                }
             });
         }
     }

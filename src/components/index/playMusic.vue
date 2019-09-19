@@ -100,11 +100,13 @@ export default {
         setTimeout(()=>{
             if(!this.canPlay){
                 this.$alert('我太难了~没抢到资源 o(︶︿︶)o','sorry',{
-                    confirmButtonText: '确定',
-                    callback: function(){}
+                    confirmButtonText: '行吧',
+                    callback: function(){
+                        window.top.close();
+                    }
                 });
             }
-        },200)
+        },250)
     }
     
 }

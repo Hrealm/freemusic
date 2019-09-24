@@ -9,9 +9,14 @@
             <!-- 相关推荐 -->
             <div class="recommend fl">
                 <div class="itemTitle clearFix">
-                    <h3>相关<b>推荐</b></h3>
+                    <h3>歌曲<b>信息</b></h3>
                 </div>
-                <div class="itemContent clearFix">
+                <div class="songInfo">
+                    <p class="title">歌曲：{{songList.title}}</p>
+                    <p class="artist">歌手：{{songList.artist}}</p>
+                    <div class="lrc">{{songList.lrc}}</div>
+                </div>
+                <!-- <div class="itemContent clearFix">
                     <ul>
                         <li class="fl" v-for="(item,index) in hotRadio" :key="index">
                             <a href="javascript:;">
@@ -21,7 +26,7 @@
                             </a>
                         </li>
                     </ul>
-                </div>
+                </div> -->
             </div>
             <!-- 相关MV -->
             <div class="relatedMV fr">
@@ -147,55 +152,55 @@ export default {
 						}
 					}
 				}
-                .itemContent{
-                    ul {
-                        width: 864px;
-                        li{
-                            position: relative;
-                            width: 100px;
-                            margin-right: 44px;
-                            margin-bottom: 23px;
-                            text-align: center;
-                            a{
-                                .cover{
-                                    position: absolute;
-                                    visibility: hidden;
-                                    width: 100px;
-                                    height: 100px;
-                                    line-height: 100px;
-                                    text-align: 100px;
-                                    background-color: rgba(0, 0, 0,.3);
-                                    i{
-                                        font-size: 32px;
-                                        color: rgba(255,255,255,.8);
-                                    }
-                                }
-                                display: block;
-                                font-size: 0;
-                                img{
-                                    width: 100px;
-                                    height: 100px;
-                                }
-                                .radioName{
-                                    margin-top: 10px;
-                                    width: 100px;
-                                    line-height: 20px;
-                                    font-size: 14px;
-                                    text-overflow: ellipsis;
-                                    white-space: nowrap;
-                                    overflow: hidden;
-                                    color: #333;
-                                }
-                            }
-                        }
-                        li:hover .cover{
-                            visibility: visible;
-                        }
-                        li:hover .radioName{
-                            color: #31c27c;
-                        }
-                    }
-                }
+                // .itemContent{
+                //     ul {
+                //         width: 864px;
+                //         li{
+                //             position: relative;
+                //             width: 100px;
+                //             margin-right: 44px;
+                //             margin-bottom: 23px;
+                //             text-align: center;
+                //             a{
+                //                 .cover{
+                //                     position: absolute;
+                //                     visibility: hidden;
+                //                     width: 100px;
+                //                     height: 100px;
+                //                     line-height: 100px;
+                //                     text-align: 100px;
+                //                     background-color: rgba(0, 0, 0,.3);
+                //                     i{
+                //                         font-size: 32px;
+                //                         color: rgba(255,255,255,.8);
+                //                     }
+                //                 }
+                //                 display: block;
+                //                 font-size: 0;
+                //                 img{
+                //                     width: 100px;
+                //                     height: 100px;
+                //                 }
+                //                 .radioName{
+                //                     margin-top: 10px;
+                //                     width: 100px;
+                //                     line-height: 20px;
+                //                     font-size: 14px;
+                //                     text-overflow: ellipsis;
+                //                     white-space: nowrap;
+                //                     overflow: hidden;
+                //                     color: #333;
+                //                 }
+                //             }
+                //         }
+                //         li:hover .cover{
+                //             visibility: visible;
+                //         }
+                //         li:hover .radioName{
+                //             color: #31c27c;
+                //         }
+                //     }
+                // }
             }
             .relatedMV{
                 width: 320px;

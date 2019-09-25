@@ -12,21 +12,14 @@
                     <h3>歌曲<b>信息</b></h3>
                 </div>
                 <div class="songInfo">
-                    <p class="title">歌曲：{{songList.title}}</p>
-                    <p class="artist">歌手：{{songList.artist}}</p>
-                    <div class="lrc">{{songList.lrc}}</div>
+                    <!-- <p class="title">歌曲：{{songList.title}}</p>
+                    <p class="artist">歌手：{{songList.artist}}</p> -->
+                    <div class="lrc">
+                        <ul>
+                            <li v-for="(item,index) in lyricstxt" :key="index">{{item}}</li>
+                        </ul>
+                    </div>
                 </div>
-                <!-- <div class="itemContent clearFix">
-                    <ul>
-                        <li class="fl" v-for="(item,index) in hotRadio" :key="index">
-                            <a href="javascript:;">
-                                <div class="cover"><i class="iconfont icon-bofang"></i></div>
-                                <img :src="item.picUrl" alt="" width="100%" height="100%" v-lazy="item.picUrl">
-                                <p class="radioName">{{item.name}}</p>
-                            </a>
-                        </li>
-                    </ul>
-                </div> -->
             </div>
             <!-- 相关MV -->
             <div class="relatedMV fr">
@@ -56,6 +49,7 @@ export default {
             musicObj: {},
             player: false,
             canPlay: true,
+            lyricstxt: [],
             hotRadio: []
         }
     },
@@ -111,8 +105,81 @@ export default {
                     }
                 });
             }
-        },250)
-    }
+            var lrc = String(this.songList.lrc);
+            if(lrc.length==0) return;
+            var lrcs = lrc.split('\n');//用回车拆分成数组
+            for(var i in lrcs) {//遍历歌词数组
+                lrcs[i] = lrcs[i].replace(/(^\s*)|(\s*$)/g, ""); //去除前后空格
+                var t = lrcs[i].substring(lrcs[i].indexOf("[") + 1, lrcs[i].indexOf("]"));//取[]间的内容
+                var s = t.split(":");//分离:前后文字
+                if(!isNaN(parseInt(s[0]))) { //是数值
+                    var arr = lrcs[i].match(/\[(\d+:.+?)\]/g);//提取时间字段，可能有多个
+                    var start = 0;
+                    for(var k in arr){
+                        start += arr[k].length; //计算歌词位置
+                    }
+                    var content = lrcs[i].substring(start);//获取歌词内容
+                    this.lyricstxt.push(content)
+                }
+            }
+            // console.log(this.lyricstxt);
+            
+        },250);
+
+    },
+    // filters: {
+    //     lyrics: function(lrc){
+    //         var lrc = String(lrc);
+    //         var strlrc = '';
+    //         var oLRC = {ms: []};
+    //         if(lrc.length==0) return;
+    //         var lrcs = lrc.split('\n');//用回车拆分成数组
+    //          var a = [];
+    //         for(var i in lrcs) {//遍历歌词数组
+    //             lrcs[i] = lrcs[i].replace(/(^\s*)|(\s*$)/g, ""); //去除前后空格
+    //             var t = lrcs[i].substring(lrcs[i].indexOf("[") + 1, lrcs[i].indexOf("]"));//取[]间的内容
+    //             var s = t.split(":");//分离:前后文字
+    //             if(isNaN(parseInt(s[0]))) { //不是数值
+    //                 for (var i in oLRC) {
+    //                     if (i != "ms" && i == s[0].toLowerCase()) {
+    //                         oLRC[i] = s[1];
+    //                     }
+    //                 }
+    //             }else { //是数值
+    //                 var arr = lrcs[i].match(/\[(\d+:.+?)\]/g);//提取时间字段，可能有多个
+    //                 var start = 0;
+    //                 for(var k in arr){
+    //                     start += arr[k].length; //计算歌词位置
+    //                 }
+    //                 var content = lrcs[i].substring(start);//获取歌词内容
+                   
+    //                 a.push(content)
+                    
+    //                 for (var k in arr){
+    //                     var t = arr[k].substring(1, arr[k].length-1);//取[]间的内容
+    //                     var s = t.split(":");//分离:前后文字
+    //                     oLRC.ms.push({//对象{t:时间,c:歌词}加入ms数组
+    //                         t: (parseFloat(s[0])*60+parseFloat(s[1])).toFixed(3),
+    //                         c: content
+    //                     });
+    //                 }
+    //             }
+    //         }
+    //         oLRC.ms.sort(function (a, b) {//按时间顺序排序
+    //             return a.t-b.t;
+    //         });
+    //         //查看解析结果
+    //         for(var key in oLRC.ms){
+    //             strlrc += oLRC.ms[key].c + "\n"
+    //         }
+    //         // console.log(oLRC.ms[key].c);
+    //         // console.log(oLRC);
+    //         console.log(lrc);
+    //         // console.log(a);
+
+    //         return strlrc;
+    //     }
+    // }
     
 }
 </script>
@@ -152,55 +219,6 @@ export default {
 						}
 					}
 				}
-                // .itemContent{
-                //     ul {
-                //         width: 864px;
-                //         li{
-                //             position: relative;
-                //             width: 100px;
-                //             margin-right: 44px;
-                //             margin-bottom: 23px;
-                //             text-align: center;
-                //             a{
-                //                 .cover{
-                //                     position: absolute;
-                //                     visibility: hidden;
-                //                     width: 100px;
-                //                     height: 100px;
-                //                     line-height: 100px;
-                //                     text-align: 100px;
-                //                     background-color: rgba(0, 0, 0,.3);
-                //                     i{
-                //                         font-size: 32px;
-                //                         color: rgba(255,255,255,.8);
-                //                     }
-                //                 }
-                //                 display: block;
-                //                 font-size: 0;
-                //                 img{
-                //                     width: 100px;
-                //                     height: 100px;
-                //                 }
-                //                 .radioName{
-                //                     margin-top: 10px;
-                //                     width: 100px;
-                //                     line-height: 20px;
-                //                     font-size: 14px;
-                //                     text-overflow: ellipsis;
-                //                     white-space: nowrap;
-                //                     overflow: hidden;
-                //                     color: #333;
-                //                 }
-                //             }
-                //         }
-                //         li:hover .cover{
-                //             visibility: visible;
-                //         }
-                //         li:hover .radioName{
-                //             color: #31c27c;
-                //         }
-                //     }
-                // }
             }
             .relatedMV{
                 width: 320px;

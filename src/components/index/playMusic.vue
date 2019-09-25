@@ -17,6 +17,10 @@
                     <div class="lrc">
                         <ul>
                             <li v-for="(item,index) in lyricstxt" :key="index">{{item}}</li>
+                            <li style="margin-top:5px;">
+                                <a href="javascript:;">展开</a>
+                                <a href="javascript:;" @click="reload()">点击刷新</a>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -122,64 +126,14 @@ export default {
                     this.lyricstxt.push(content)
                 }
             }
-            // console.log(this.lyricstxt);
-            
-        },250);
+        },200);
 
     },
-    // filters: {
-    //     lyrics: function(lrc){
-    //         var lrc = String(lrc);
-    //         var strlrc = '';
-    //         var oLRC = {ms: []};
-    //         if(lrc.length==0) return;
-    //         var lrcs = lrc.split('\n');//用回车拆分成数组
-    //          var a = [];
-    //         for(var i in lrcs) {//遍历歌词数组
-    //             lrcs[i] = lrcs[i].replace(/(^\s*)|(\s*$)/g, ""); //去除前后空格
-    //             var t = lrcs[i].substring(lrcs[i].indexOf("[") + 1, lrcs[i].indexOf("]"));//取[]间的内容
-    //             var s = t.split(":");//分离:前后文字
-    //             if(isNaN(parseInt(s[0]))) { //不是数值
-    //                 for (var i in oLRC) {
-    //                     if (i != "ms" && i == s[0].toLowerCase()) {
-    //                         oLRC[i] = s[1];
-    //                     }
-    //                 }
-    //             }else { //是数值
-    //                 var arr = lrcs[i].match(/\[(\d+:.+?)\]/g);//提取时间字段，可能有多个
-    //                 var start = 0;
-    //                 for(var k in arr){
-    //                     start += arr[k].length; //计算歌词位置
-    //                 }
-    //                 var content = lrcs[i].substring(start);//获取歌词内容
-                   
-    //                 a.push(content)
-                    
-    //                 for (var k in arr){
-    //                     var t = arr[k].substring(1, arr[k].length-1);//取[]间的内容
-    //                     var s = t.split(":");//分离:前后文字
-    //                     oLRC.ms.push({//对象{t:时间,c:歌词}加入ms数组
-    //                         t: (parseFloat(s[0])*60+parseFloat(s[1])).toFixed(3),
-    //                         c: content
-    //                     });
-    //                 }
-    //             }
-    //         }
-    //         oLRC.ms.sort(function (a, b) {//按时间顺序排序
-    //             return a.t-b.t;
-    //         });
-    //         //查看解析结果
-    //         for(var key in oLRC.ms){
-    //             strlrc += oLRC.ms[key].c + "\n"
-    //         }
-    //         // console.log(oLRC.ms[key].c);
-    //         // console.log(oLRC);
-    //         console.log(lrc);
-    //         // console.log(a);
-
-    //         return strlrc;
-    //     }
-    // }
+    methods: {
+        reload(){
+            location.reload();
+        }
+    }
     
 }
 </script>
@@ -219,6 +173,18 @@ export default {
 						}
 					}
 				}
+                .songInfo{
+                    .lrc{
+                        text-align: center;
+                        ul{
+                            li{
+                                font-size: 14px;
+                                color: #333;
+                                line-height: 23px;
+                            }
+                        }
+                    }
+                }
             }
             .relatedMV{
                 width: 320px;

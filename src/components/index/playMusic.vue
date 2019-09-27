@@ -17,12 +17,18 @@
                     <div class="lrc">
                         <ul>
                             <li v-for="(item,index) in lyricstxt" :key="index">{{item}}</li>
-                            <li v-for="(item,index) in lyricshidden" :key="index">{{item}}</li>
-                            <li style="margin-top:5px;">
+                            <!-- <li style="margin-top:5px;">
                                 <a href="javascript:;" @click="expand()">展开</a>
                                 <a href="javascript:;" @click="reload()">点击刷新</a>
-                            </li>
+                            </li> -->
                         </ul>
+                        <ul :style="isShow ? 'display: block;' : 'display:none;'">
+                            <li v-for="(item,i) in lyricshidden" :key="i">{{item}}</li>
+                        </ul>
+                        <p style="margin-top:5px;">
+                            <a href="javascript:;" @click="expand()">{{tip}}</a>
+                            <a href="javascript:;" @click="reload()">点击刷新</a>
+                        </p>
                     </div>
                 </div>
             </div>
@@ -56,6 +62,8 @@ export default {
             canPlay: true,
             lyricstxt: [],
             lyricshidden: [],
+            isShow: false,
+            tip: '展开',
             hotRadio: []
         }
     },
@@ -114,6 +122,8 @@ export default {
             var lrc = String(this.songList.lrc);
             if(lrc.length==0) return;
             var lrcs = lrc.split('\n');//用回车拆分成数组
+            // console.log(lrcs);
+            
             for(var i in lrcs) {//遍历歌词数组
                 lrcs[i] = lrcs[i].replace(/(^\s*)|(\s*$)/g, ""); //去除前后空格
                 var t = lrcs[i].substring(lrcs[i].indexOf("[") + 1, lrcs[i].indexOf("]"));//取[]间的内容
@@ -125,10 +135,10 @@ export default {
                         start += arr[k].length; //计算歌词位置
                     }
                     var content = lrcs[i].substring(start);//获取歌词内容
-                    i < lrcs.length / 2 ? this.lyricstxt.push(content) : this.lyricshidden.push(content);
+                    parseInt(i) < (lrcs.length / 2) - 5 ? this.lyricstxt.push(content) : this.lyricshidden.push(content);
                 }
             }
-            console.log(this.lyricstxt,this.lyricshidden);
+            // console.log(this.lyricstxt,this.lyricshidden);
         },250);
 
     },
@@ -137,7 +147,8 @@ export default {
             location.reload();
         },
         expand(){
-
+            this.isShow = !this.isShow;
+            this.tip = this.isShow ? '收起' : '展开';
         }
     }
     
@@ -188,6 +199,9 @@ export default {
                                 color: #333;
                                 line-height: 23px;
                             }
+                        }
+                        p{
+                            font-size: 14px;
                         }
                     }
                 }

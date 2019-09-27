@@ -17,8 +17,9 @@
                     <div class="lrc">
                         <ul>
                             <li v-for="(item,index) in lyricstxt" :key="index">{{item}}</li>
+                            <li v-for="(item,index) in lyricshidden" :key="index">{{item}}</li>
                             <li style="margin-top:5px;">
-                                <a href="javascript:;">展开</a>
+                                <a href="javascript:;" @click="expand()">展开</a>
                                 <a href="javascript:;" @click="reload()">点击刷新</a>
                             </li>
                         </ul>
@@ -54,6 +55,7 @@ export default {
             player: false,
             canPlay: true,
             lyricstxt: [],
+            lyricshidden: [],
             hotRadio: []
         }
     },
@@ -123,15 +125,19 @@ export default {
                         start += arr[k].length; //计算歌词位置
                     }
                     var content = lrcs[i].substring(start);//获取歌词内容
-                    this.lyricstxt.push(content)
+                    i < lrcs.length / 2 ? this.lyricstxt.push(content) : this.lyricshidden.push(content);
                 }
             }
-        },200);
+            console.log(this.lyricstxt,this.lyricshidden);
+        },250);
 
     },
     methods: {
         reload(){
             location.reload();
+        },
+        expand(){
+
         }
     }
     

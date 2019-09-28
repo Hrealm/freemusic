@@ -12,8 +12,6 @@
                     <h3>歌曲<b>信息</b></h3>
                 </div>
                 <div class="songInfo">
-                    <!-- <p class="title">歌曲：{{songList.title}}</p>
-                    <p class="artist">歌手：{{songList.artist}}</p> -->
                     <div class="lrc">
                         <ul>
                             <li v-for="(item,index) in lyricstxt" :key="index">{{item}}</li>

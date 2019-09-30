@@ -41,6 +41,10 @@
             </div>
             <!-- 评论系统 -->
             <div class="comment fl">
+                <div class="title">
+                    <h3><span>评论</span></h3>
+                    <span>共235条评论</span>
+                </div>
                 <div class="comment_none">评论系统升级中</div>
             </div>
         </div>

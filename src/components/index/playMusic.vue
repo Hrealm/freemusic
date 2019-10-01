@@ -41,9 +41,9 @@
             </div>
             <!-- 评论系统 -->
             <div class="comment fl">
-                <div class="title">
-                    <h3><span>评论</span></h3>
-                    <span>共235条评论</span>
+                <div class="comment_title clearFix">
+                    <h3 class="fl"><span>评论</span></h3>
+                    <span class="sum fl">共0条评论</span>
                 </div>
                 <div class="comment_none">评论系统升级中</div>
             </div>
@@ -272,6 +272,22 @@ export default {
             }
             .comment{
                 width: 820px;
+                margin-top: 40px;
+                .comment_title{
+                    height: 33px;
+                    border-bottom: 2px solid #31c27c;
+                    h3{
+                        font-size: 20px;
+                        line-height: 28px;
+                        font-weight: normal;
+                    }
+                    .sum{
+                        margin-left: 20px;
+                        margin-top: 9px;
+                        font-size: 12px;
+                        color: #666;
+                    }
+                }
                 .comment_none{
                     font-size: 16px;
                     line-height: 144px;

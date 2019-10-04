@@ -167,30 +167,8 @@ export default {
 	},
 	components: {},
 	created() {
-		// this.axios.get('/api/banner').then(res => {
-		// 	this.banner = res.data
-		// })
-		// this.axios.get('/api/songList').then(res => {
-		// 	this.songList = res.data
-        // })
-        // this.axios.get('/api/hotList').then((res)=>{
-        //     this.hotList = res.data
-        // })
-        // this.axios.get('/api/tabMenu').then((res)=>{
-        //     this.tabMenu = res.data
-        // })
-        // this.axios.get('/api/SongtabContent').then((res)=>{
-        //     this.SongtabContent = res.data
-        // })
-        // this.axios.get('/api/hotMV').then((res)=>{
-        //     this.hotMV = res.data
-        // })
-        // this.axios.get('/api/hotRadio').then((res)=>{
-        //     this.hotRadio = res.data
-        // })
-        // this.axios.get('/api/hotSinger').then((res)=>{
-        //     this.hotSinger = res.data
-        // })
+        // 删除多次http请求
+        // 一次请求数据，优化性能
         this.axios.get('/api/indexList').then(res => {
             this.indexInfo = res.data;
             this.banner = this.indexInfo.banner;

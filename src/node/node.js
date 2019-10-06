@@ -1,7 +1,5 @@
 const http = require('http');
 const url = require('url');
-// let songList = require('./songList.js');
-// let songtabContent = require('./songtabContent.js');
 let indexlist = require('./index.js');
 let songlistContent = require('./songlistContent.js');
 let server = http.createServer();

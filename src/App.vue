@@ -207,23 +207,7 @@ export default {
                 str = str ? hex_md5(str) : '';
                 return str;
             },
-            // write: function(name, value, exp, path, domain, secure) {
-            //     var expires = "";
-            //     if (exp) {
-            //         var dt = new Date();
-            //         dt.setTime(dt.getTime() + (exp * 1000));
-            //         expires = ";expires=" + dt.toGMTString();
-            //     }
-            //     value = encodeURIComponent(value);
-            //     path = path ? '; path=' + (path) : ';path=/';
-            //     domain = domain ? '; domain=' + (domain) : '';
-            //     secure = secure ? '; secure': '';
-            //     document.cookie = [name, '=', value, expires, path, domain, secure].join('');
-            // },
-            // GetDomain: function() {
-            //     var s = /\w*\.(com.cn|com|net.cn|net|org.cn|org|gov.cn|gov|cn|mobi|me|info|name|biz|cc|tv|asia|hk|网络|公司|中国).*$/g;
-            //     return document.domain.toString().match(s)[0];
-            // },
+
     }
 
 

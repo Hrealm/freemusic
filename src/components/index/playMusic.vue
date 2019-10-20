@@ -41,11 +41,30 @@
             </div>
             <!-- 评论系统 -->
             <div class="comment fl">
-                <div class="comment_title clearFix">
+                <!-- 来必力City版安装代码 -->
+                <div id="lv-container" data-id="city" data-uid="MTAyMC80NzE3My8yMzY3Mw==">
+                    <!-- <script type="text/javascript">
+                        (function(d, s) {
+                            var j, e = d.getElementsByTagName(s)[0];
+
+                            if (typeof LivereTower === 'function') { return; }
+
+                            j = d.createElement(s);
+                            j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+                            j.async = true;
+
+                            e.parentNode.insertBefore(j, e);
+                        })(document, 'script');
+                    </script>
+                <noscript> 为正常使用来必力评论功能请激活JavaScript</noscript> -->
+                </div>
+                <!-- City版安装代码已完成 -->
+
+                <!-- <div class="comment_title clearFix">
                     <h3 class="fl"><span>评论</span></h3>
                     <span class="sum fl">共0条评论</span>
                 </div>
-                <div class="comment_none">评论系统升级中</div>
+                <div class="comment_none">评论系统升级中</div> -->
             </div>
         </div>
 
@@ -140,7 +159,20 @@ export default {
                 }
             }
         },250);
-        
+
+        //来必力City版安装代码
+        (function(d, s) {
+            var j, e = d.getElementsByTagName(s)[0];
+
+            if (typeof LivereTower === 'function') { return; }
+
+            j = d.createElement(s);
+            j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+            j.async = true;
+
+            e.parentNode.insertBefore(j, e);
+        })(document, 'script');
+
     },
     methods: {
         reload(){

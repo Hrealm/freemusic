@@ -140,7 +140,7 @@ export default {
                 }
             }
         },250);
-
+        
     },
     methods: {
         reload(){

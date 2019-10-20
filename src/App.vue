@@ -59,7 +59,7 @@ export default {
     name: 'App',
     created(){
         //添加cookie--播放酷狗音乐
-        document.cookie = "kg_mid=1923c6069c305133056773d8fce002ce;expires = Session";
+        document.cookie = "kg_mid=2d1b214b9bf3901a31f710cc87a15aec;expires = Session";
 
 
         var n = this.Guid();

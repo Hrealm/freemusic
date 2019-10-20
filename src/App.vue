@@ -59,14 +59,14 @@ export default {
     name: 'App',
     created(){
         //添加cookie--播放酷狗音乐
-        // document.cookie = "kg_mid=1923c6069c305133056773d8fce002ce;expires = Session";
+        document.cookie = "kg_mid=1923c6069c305133056773d8fce002ce;expires = Session";
 
 
         var n = this.Guid();
         // this.write("kg_mid___new", this.Md5(n), 10000 * 86400, "/", this.GetDomain());
         // console.log(`kg_mid___new=${this.Md5(n)}${10000 * 86400}/${this.GetDomain()}`);
         // console.log(`kg_mid=${this.Md5(n)};expires = Session`);
-        document.cookie = `kg_mid=${this.Md5(n)};expires = Session`;
+        // document.cookie = `kg_mid=${this.Md5(n)};expires = Session`;
     },
 
 

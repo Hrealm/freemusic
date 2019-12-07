@@ -11,9 +11,9 @@
 
 ## Partial Screenshot
 
-<img src="static/img/screenshot/1.jpg" width="100%" height="100%"/>
+<img src="static/img/screenshot/1.jpg" width="80%" height="80%"/>
 
-<img src="static/img/screenshot/2.jpg" width="100%" height="100%"/>
+<img src="static/img/screenshot/2.jpg" width="80%" height="80%"/>
 
 ## Build Setup
 

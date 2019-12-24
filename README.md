@@ -15,7 +15,7 @@
 
 <img src="static/img/screenshot/2.jpg" width="80%" height="80%"/>
 
-<img src="static/img/screenshot/3.jpg" width="80%" height="80%"/>
+<img src="static/img/screenshot/3.jpg" width="85%" height="85%"/>
 
 ## Build Setup
 

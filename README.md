@@ -11,7 +11,7 @@
 
 ## Partial Screenshot
 
-<img src="static/img/screenshot/1.jpg" width="85%" height="85%"/>
+<img src="static/img/screenshot/1.jpg" width="80%" height="80%"/>
 
 <img src="static/img/screenshot/2.jpg" width="80%" height="80%"/>
 
